@@ -9,4 +9,4 @@ provide suggestions.
 ## Code Style guides
 
 - [Node.js](Node.js/Readme.md)
-- [Angular 1](Angular.js/Readme.md)
+- [Angular 1](Angular.js/README.md)
