@@ -11,5 +11,5 @@ provide suggestions.
 - [Javascript EC6](Javascript(EC6)/README.md)
 - [Javascript EC5](Javascript(EC5)/README.md)
 - [NodeJs](NodeJs/Readme.md)
-- [Angular 1](Angular1/README.md)
+- [Angular 1.x](Angular(1.x)/README.md)
 - [React](React/README.md)
