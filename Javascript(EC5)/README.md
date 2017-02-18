@@ -1,5 +1,5 @@
 
-# MakingSense JavaScript EC5 Style Guide() {
+# MakingSense JavaScript EC5.1 Style Guide() {
 
 *A mostly reasonable approach to JavaScript*
 
@@ -1710,10 +1710,6 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
   - ![ru](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Russia.png) **Russian**: [uprock/javascript](https://github.com/uprock/javascript)
   - ![es](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Spain.png) **Spanish**: [paolocarrasco/javascript-style-guide](https://github.com/paolocarrasco/javascript-style-guide)
   - ![th](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Thailand.png) **Thai**: [lvarayut/javascript-style-guide](https://github.com/lvarayut/javascript-style-guide)
-
-## The JavaScript Style Guide Guide
-
-  - [Reference](https://github.com/airbnb/javascript/wiki/The-JavaScript-Style-Guide-Guide)
 
 
 ## Contributors
