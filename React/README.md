@@ -81,7 +81,7 @@ Forked from the excellent [Airbnb React Style Guide](https://github.com/react), 
 
 ## Naming
 
-  - **Extensions**: Use `.jsx` extension for React components.
+  - **Extensions**: You can use either `.jsx` or `.js` (this extension is being used on: [mern-seed](https://github.com/MakingSense/mern-seed) developed by MakingSense) extensions for React components.
   - **Filename**: Use PascalCase for filenames. E.g., `ReservationCard.jsx`.
   - **Reference Naming**: Use PascalCase for React components and camelCase for their instances. eslint: [`react/jsx-pascal-case`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-pascal-case.md)
 
