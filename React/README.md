@@ -433,19 +433,19 @@ Forked from the excellent [Airbnb React Style Guide](https://github.com/react), 
     <Foo className="stuff" />
     ```
 
-  - If your component has multi-line properties, close its tag on a new line. eslint: [`react/jsx-closing-bracket-location`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md)
+  - If your component has multi-line properties, close its tag on the last property. eslint: [`react/jsx-closing-bracket-location`](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-closing-bracket-location.md)
 
     ```jsx
     // bad
     <Foo
       bar="bar"
-      baz="baz" />
+      baz="baz"
+    />
 
     // good
     <Foo
       bar="bar"
-      baz="baz"
-    />
+      baz="baz" />
     ```
 
 ## Methods
