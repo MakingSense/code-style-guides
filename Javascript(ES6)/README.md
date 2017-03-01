@@ -789,17 +789,19 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
       // ...
     }
 
+    // bad
     function f2(a) {
       if (!a) { a = 1; }
       // ...
     }
 
-    // good
+    // good: use a different variable for the manipulation required
     function f3(a) {
       const b = a || 1;
       // ...
     }
 
+    // good: use a default values to parameters to avoid extra logic
     function f4(a = 1) {
       // ...
     }
