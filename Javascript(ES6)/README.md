@@ -146,6 +146,23 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     const item = {};
     ```
 
+    **Note:** Exceptions are allowed for when _bare objects_ are required. You can see a valid use case in [True Hashmaps in JavaScript](http://ryanmorr.com/true-hash-maps-in-javascript/). In a case like that, prefer the object creation without a prototype instead of removing the prototype from the object.
+    
+   Note that the recommended usage is not technically a violation of the code style rule, but we include it anyway since it will feel to the developer as a step backwards in the simple object creation direction.
+
+   ```javascript
+   // awful -- non standard
+   const myHashMap = {};
+   myHashMap.__proto__ = null;
+   
+   // bad
+   const myHashMap = {};
+   Object.setPrototype(myHashMap, null);
+   
+   // good
+   const myHashMap = Object.create(null);
+   ```
+
   <a name="es6-computed-properties"></a><a name="3.4"></a>
   - [3.2](#es6-computed-properties) Use computed property names when creating objects with dynamic property names.
 
