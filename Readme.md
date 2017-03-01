@@ -8,8 +8,8 @@ provide suggestions.
 
 ## Code Style guides
 
-- [Javascript EC6](Javascript(EC6)/README.md)
-- [Javascript EC5](Javascript(EC5)/README.md)
+- [Javascript ES6](Javascript(ES6)/README.md)
+- [Javascript ES5](Javascript(ES5)/README.md)
 - [NodeJs](NodeJs/Readme.md)
 - [Angular 1.x](Angular(1.x)/README.md)
 - [React](React/README.md)
