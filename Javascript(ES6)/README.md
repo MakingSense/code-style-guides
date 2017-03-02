@@ -1859,6 +1859,30 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     const bar = !!c;
     const baz = !c;
     ```
+    
+  - [15.8](#comparison--no-side-effects-ternary) Avoid side effects in ternary comparisons. Prefer `if` statements in cases like that.
+  
+  > Why? Side effects written in a single line disrupt the rythym of code reading for other developers. Furthermore, if you happen to be debugging line-by-line, side effects in ternary are difficult to work with.
+  
+    ```javascript
+    // bad
+    const myResult = (a += 1 > 0) ? a *= 2 : a;
+    
+    // good: removes side effects from the ternary
+    a += 1;
+    const isAPositive = a > 0;
+    const aDoubled = a * 2;
+    const myResult = isAPositive ? aDoubled : a;
+    
+    // bad
+    shouldBeVisible ? show() : hide();
+    
+    // good: uses if for branching logic
+    if (shouldBeVisible)
+        show();
+    else
+        hide();
+    ```
 
 **[⬆ back to top](#table-of-contents)**
 
