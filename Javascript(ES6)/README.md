@@ -37,11 +37,6 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
   1. [Testing](#testing)
   1. [Performance](#performance)
   1. [Resources](#resources)
-  1. [In the Wild](#in-the-wild)
-  1. [Translation](#translation)
-  1. [The JavaScript Style Guide Guide](#the-javascript-style-guide-guide)
-  1. [Chat With Us About JavaScript](#chat-with-us-about-javascript)
-  1. [Contributors](#contributors)
   1. [License](#license)
 
 ## Types
@@ -163,7 +158,7 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
    const myHashMap = Object.create(null);
    ```
 
-  <a name="es6-computed-properties"></a><a name="3.4"></a>
+  <a name="es6-computed-properties"></a><a name="3.2"></a>
   - [3.2](#es6-computed-properties) Use computed property names when creating objects with dynamic property names.
 
     > Why? They allow you to define all the properties of an object in one place.
@@ -189,7 +184,7 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     };
     ```
 
-  <a name="es6-object-shorthand"></a><a name="3.5"></a>
+  <a name="es6-object-shorthand"></a><a name="3.3"></a>
   - [3.3](#es6-object-shorthand) Use object method shorthand. eslint: [`object-shorthand`](http://eslint.org/docs/rules/object-shorthand.html) jscs: [`requireEnhancedObjectLiterals`](http://jscs.info/rule/requireEnhancedObjectLiterals)
 
     ```javascript
@@ -212,7 +207,7 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     };
     ```
 
-  <a name="es6-object-concise"></a><a name="3.6"></a>
+  <a name="es6-object-concise"></a><a name="3.4"></a>
   - [3.4](#es6-object-concise) Use property value shorthand. eslint: [`object-shorthand`](http://eslint.org/docs/rules/object-shorthand.html) jscs: [`requireEnhancedObjectLiterals`](http://jscs.info/rule/requireEnhancedObjectLiterals)
 
     > Why? It is shorter to write and descriptive.
@@ -231,7 +226,7 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     };
     ```
 
-  <a name="objects--grouped-shorthand"></a><a name="3.7"></a>
+  <a name="objects--grouped-shorthand"></a><a name="3.5"></a>
   - [3.5](#objects--grouped-shorthand) Group your shorthand properties at the beginning of your object declaration.
 
     > Why? It's easier to tell which properties are using the shorthand.
@@ -261,7 +256,7 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     };
     ```
 
-  <a name="objects--quoted-props"></a><a name="3.8"></a>
+  <a name="objects--quoted-props"></a><a name="3.6"></a>
   - [3.6](#objects--quoted-props) Only quote properties that are invalid identifiers. eslint: [`quote-props`](http://eslint.org/docs/rules/quote-props.html) jscs: [`disallowQuotedKeysInObjects`](http://jscs.info/rule/disallowQuotedKeysInObjects)
 
     > Why? In general we consider it subjectively easier to read. It improves syntax highlighting, and is also more easily optimized by many JS engines.
@@ -282,7 +277,7 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     };
     ```
 
-  <a name="objects--prototype-builtins"></a>
+  <a name="objects--prototype-builtins"></a><a name="3.7"></a>
   - [3.7](#objects--prototype-builtins) Do not call `Object.prototype` methods directly, such as `hasOwnProperty`, `propertyIsEnumerable`, and `isPrototypeOf`.
 
     > Why? These methods may be shadowed by properties on the object in question - consider `{ hasOwnProperty: false }` - or, the object may be a bare object (`Object.create(null)`).
@@ -302,7 +297,7 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     console.log(has.call(object, key));
     ```
 
-  <a name="objects--rest-spread"></a>
+  <a name="objects--rest-spread"></a><a name="3.8"></a>
   - [3.8](#objects--rest-spread) Prefer the object spread operator over [`Object.assign`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) to shallow-copy objects. Use the object rest operator to get a new object with certain properties omitted.
 
     ```javascript
@@ -533,7 +528,7 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     const errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
     ```
 
-  <a name="es6-template-literals"></a><a name="6.4"></a>
+  <a name="es6-template-literals"></a><a name="6.3"></a>
   - [6.3](#es6-template-literals) When programmatically building up strings, use template strings instead of concatenation. eslint: [`prefer-template`](http://eslint.org/docs/rules/prefer-template.html) [`template-curly-spacing`](http://eslint.org/docs/rules/template-curly-spacing) jscs: [`requireTemplateStrings`](http://jscs.info/rule/requireTemplateStrings)
 
     > Why? Template strings give you a readable, concise syntax with proper newlines and string interpolation features.
@@ -560,10 +555,10 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     }
     ```
 
-  <a name="strings--eval"></a><a name="6.5"></a>
+  <a name="strings--eval"></a><a name="6.4"></a>
   - [6.4](#strings--eval) Never use `eval()` on a string, it opens too many vulnerabilities.
 
-  <a name="strings--escaping"></a>
+  <a name="strings--escaping"></a><a name="6.5"></a>
   - [6.5](#strings--escaping) Do not unnecessarily escape characters in strings. eslint: [`no-useless-escape`](http://eslint.org/docs/rules/no-useless-escape)
 
     > Why? Backslashes harm readability, thus they should only be present when necessary.
@@ -828,7 +823,7 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     new Date(...[2016, 8, 5]);
     ```
 
-  <a name="functions--signature-invocation-indentation"></a>
+  <a name="functions--signature-invocation-indentation"></a><a name="7.15"></a>
   - [7.15](#functions--signature-invocation-indentation) Functions with multiline signatures, or invocations, should be indented just like every other multiline list in this guide: with each item on a line by itself, with a trailing comma on the last item.
 
     ```javascript
@@ -1130,7 +1125,7 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     }
     ```
 
-  <a name="classes--no-duplicate-members"></a>
+  <a name="classes--no-duplicate-members"></a><a name="9.6"></a>
   - [9.6](#classes--no-duplicate-members) Avoid duplicate class members. eslint: [`no-dupe-class-members`](http://eslint.org/docs/rules/no-dupe-class-members)
 
     > Why? Duplicate class member declarations will silently prefer the last one - having duplicates is almost certainly a bug.
@@ -1207,7 +1202,7 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     export default es6;
     ```
 
-  <a name="modules--no-duplicate-imports"></a>
+  <a name="modules--no-duplicate-imports"></a><a name="10.4"></a>
   - [10.4](#modules--no-duplicate-imports) Only import from a path in one place.
  eslint: [`no-duplicate-imports`](http://eslint.org/docs/rules/no-duplicate-imports)
     > Why? Having multiple lines that import from the same path can make code harder to maintain.
@@ -1228,7 +1223,7 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     } from 'foo';
     ```
 
-  <a name="modules--no-mutable-exports"></a>
+  <a name="modules--no-mutable-exports"></a><a name="10.5"></a>
   - [10.5](#modules--no-mutable-exports) Do not export mutable bindings.
  eslint: [`import/no-mutable-exports`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-mutable-exports.md)
     > Why? Mutation should be avoided in general, but in particular when exporting mutable bindings. While this technique may be needed for some special cases, in general, only constant references should be exported.
@@ -1243,7 +1238,7 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     export { foo };
     ```
 
-  <a name="modules--prefer-default-export"></a>
+  <a name="modules--prefer-default-export"></a><a name="10.6"></a>
   - [10.6](#modules--prefer-default-export) In modules with a single export, prefer default export over named export.
  eslint: [`import/prefer-default-export`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/prefer-default-export.md)
 
@@ -1255,7 +1250,7 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     export default function foo() {}
     ```
 
-  <a name="modules--imports-first"></a>
+  <a name="modules--imports-first"></a><a name="10.7"></a>
   - [10.7](#modules--imports-first) Put all `import`s above non-import statements.
  eslint: [`import/first`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/first.md)
     > Why? Since `import`s are hoisted, keeping them all at the top prevents surprising behavior.
@@ -1274,7 +1269,7 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     foo.init();
     ```
 
-  <a name="modules--multiline-imports-over-newlines"></a>
+  <a name="modules--multiline-imports-over-newlines"></a><a name="10.8"></a>
   - [10.8](#modules--multiline-imports-over-newlines) Multiline imports should be indented just like multiline array and object literals.
 
     > Why? The curly braces follow the same indentation rules as every other curly brace block in the style guide, as do the trailing commas.
@@ -1293,7 +1288,7 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     } from 'path';
     ```
 
-  <a name="modules--no-webpack-loader-syntax"></a>
+  <a name="modules--no-webpack-loader-syntax"></a><a name="10.9"></a>
   - [10.9](#modules--no-webpack-loader-syntax) Disallow Webpack loader syntax in module import statements.
  eslint: [`import/no-webpack-loader-syntax`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-webpack-loader-syntax.md)
     > Why? Since using Webpack syntax in the imports couples the code to a module bundler. Prefer using the loader syntax in `webpack.config.js`.
@@ -1357,7 +1352,7 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
 
     > Why? They don't transpile well to ES5.
 
-  <a name="generators--spacing"></a>
+  <a name="generators--spacing"></a><a name="11.3"></a>
   - [11.3](#generators--spacing) If you must use generators, or if you disregard [our advice](#generators--nope), make sure their function signature is spaced properly. eslint: [`generator-star-spacing`](http://eslint.org/docs/rules/generator-star-spacing)
 
     > Why? `function` and `*` are part of the same conceptual keyword - `*` is not a modifier for `function`, `function*` is a unique construct, different from `function`.
@@ -2030,6 +2025,7 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     }
     ```
 
+  <a name="comments--spaces"></a><a name="17.3"></a>
   - [17.3](#comments--spaces) Start all comments with a space to make it easier to read. eslint: [`spaced-comment`](http://eslint.org/docs/rules/spaced-comment)
 
     ```javascript
@@ -2066,10 +2062,10 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     }
     ```
 
-  <a name="comments--actionitems"></a><a name="17.3"></a>
+  <a name="comments--actionitems"></a><a name="17.4"></a>
   - [17.4](#comments--actionitems) Prefixing your comments with `FIXME` or `TODO` helps other developers quickly understand if you're pointing out a problem that needs to be revisited, or if you're suggesting a solution to the problem that needs to be implemented. These are different than regular comments because they are actionable. The actions are `FIXME: -- need to figure this out` or `TODO: -- need to implement`.
 
-  <a name="comments--fixme"></a><a name="17.4"></a>
+  <a name="comments--fixme"></a><a name="17.5"></a>
   - [17.5](#comments--fixme) Use `// FIXME:` to annotate problems.
 
     ```javascript
@@ -2083,7 +2079,7 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     }
     ```
 
-  <a name="comments--todo"></a><a name="17.5"></a>
+  <a name="comments--todo"></a><a name="17.6"></a>
   - [17.6](#comments--todo) Use `// TODO:` to annotate solutions to problems.
 
     ```javascript
@@ -2837,7 +2833,7 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     export default AirbnbStyleGuide;
     ```
 
-  <a name="naming--Acronyms-and-Initialisms"></a>
+  <a name="naming--Acronyms-and-Initialisms"></a><a name="22.9"></a>
   - [22.9](#naming--Acronyms-and-Initialisms) Acronyms and initialisms should always be all capitalized, or all lowercased.
 
     > Why? Names are for readability, not to appease a computer algorithm.
@@ -3070,7 +3066,7 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
 1. [Iterators and Generators](#iterators-and-generators)
 1. [Modules](#modules)
 
-  <a name="tc39-proposals"></a>
+  <a name="tc39-proposals"></a><a name="27.2"></a>
   - [27.2](#tc39-proposals) Do not use [TC39 proposals](https://github.com/tc39/proposals) that have not reached stage 3.
 
     > Why? [They are not finalized](https://tc39.github.io/process-document/), and they are subject to change or to be withdrawn entirely. We want to use JavaScript, and proposals are not JavaScript yet.
