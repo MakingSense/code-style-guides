@@ -561,17 +561,7 @@ Forked from the excellent [Airbnb React Style Guide](https://github.com/react), 
 
     ```jsx
     import React, { PropTypes } from 'react';
-
-    const propTypes = {
-      id: PropTypes.number.isRequired,
-      url: PropTypes.string.isRequired,
-      text: PropTypes.string,
-    };
-
-    const defaultProps = {
-      text: 'Hello World',
-    };
-
+    
     class Link extends React.Component {
       static methodsAreOk() {
         return true;
@@ -582,8 +572,15 @@ Forked from the excellent [Airbnb React Style Guide](https://github.com/react), 
       }
     }
 
-    Link.propTypes = propTypes;
-    Link.defaultProps = defaultProps;
+    Link.propTypes = {
+      id: PropTypes.number.isRequired,
+      url: PropTypes.string.isRequired,
+      text: PropTypes.string
+    };
+
+    Link.defaultProps = {
+      text: 'Hello World'
+    };
 
     export default Link;
     ```
