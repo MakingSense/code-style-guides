@@ -248,7 +248,7 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     ```
 
   <a name="objects--prototype-builtins"></a><a name="3.6"></a>
-  - [3.6](#objects--prototype-builtins) Do not call `Object.prototype` methods directly, such as `hasOwnProperty`, `propertyIsEnumerable`, and `isPrototypeOf`.
+  - [3.6](#objects--prototype-builtins) Do not call `Object.prototype` methods directly, such as `hasOwnProperty`, `propertyIsEnumerable`, and `isPrototypeOf`. eslint: [`no-prototype-builtins`](http://eslint.org/docs/rules/no-prototype-builtins)
 
     > Why? These methods may be shadowed by properties on the object in question - consider `{ hasOwnProperty: false }` - or, the object may be a bare object (`Object.create(null)`).
 
@@ -394,7 +394,7 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
 ## Destructuring
 
   <a name="destructuring--object"></a><a name="5.1"></a>
-  - [5.1](#destructuring--object) Use object destructuring when accessing and using multiple properties of an object. eslint: [`prefer-destructuring`](http://eslint.org/docs/rules/prefer-destructuring)
+  - [5.1](#destructuring--object) Use object destructuring when accessing and using multiple properties of an object. eslint: [`prefer-destructuring`](http://eslint.org/docs/rules/prefer-destructuring), with the `object` option.
 
     > Why? Destructuring saves you from creating temporary references for those properties.
 
@@ -420,7 +420,7 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     ```
 
   <a name="destructuring--array"></a><a name="5.2"></a>
-  - [5.2](#destructuring--array) Use array destructuring.
+  - [5.2](#destructuring--array) Use array destructuring. eslint: [`prefer-destructuring`](http://eslint.org/docs/rules/prefer-destructuring), with the `array` option.
 
     ```javascript
     const arr = [1, 2, 3, 4];
@@ -478,7 +478,7 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     ```
 
   <a name="strings--line-length"></a><a name="6.2"></a>
-  - [6.2](#strings--line-length) Strings that cause the line to go over 100 characters should not be written across multiple lines using string concatenation.
+  - [6.2](#strings--line-length) Strings that cause the line to go over 100 characters should not be written across multiple lines using string concatenation. eslint: [`max-len`](http://eslint.org/docs/rules/max-len), with the `ignoreStrings` option.
 
     > Why? Broken strings are painful to work with and make code less searchable.
 
@@ -526,7 +526,7 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     ```
 
   <a name="strings--eval"></a><a name="6.4"></a>
-  - [6.4](#strings--eval) Never use `eval()` on a string, it opens too many vulnerabilities.
+  - [6.4](#strings--eval) Never use `eval()` on a string, it opens too many vulnerabilities. eslint: [`no-eval`](http://eslint.org/docs/rules/no-eval)
 
   <a name="strings--escaping"></a><a name="6.5"></a>
   - [6.5](#strings--escaping) Do not unnecessarily escape characters in strings. eslint: [`no-useless-escape`](http://eslint.org/docs/rules/no-useless-escape)
@@ -638,7 +638,7 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     ```
 
   <a name="es6-default-parameters"></a><a name="7.7"></a>
-  - [7.7](#es6-default-parameters) Use default parameter syntax rather than mutating function arguments.
+  - [7.7](#es6-default-parameters) Use default parameter syntax rather than mutating function arguments. eslint: [`no-param-reassign`](http://eslint.org/docs/rules/no-param-reassign)
 
     ```javascript
     // really bad
@@ -794,7 +794,7 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     ```
 
   <a name="functions--signature-invocation-indentation"></a><a name="7.15"></a>
-  - [7.15](#functions--signature-invocation-indentation) Functions with multiline signatures, or invocations, should be indented just like every other multiline list in this guide: with each item on a line by itself, with a trailing comma on the last item.
+  - [7.15](#functions--signature-invocation-indentation) Functions with multiline signatures, or invocations, should be indented just like every other multiline list in this guide: with each item on a line by itself, with a trailing comma on the last item. eslint: [`indent`](http://eslint.org/docs/rules/indent)
 
     ```javascript
     // bad
@@ -879,7 +879,7 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     ```
 
   <a name="arrows--paren-wrap"></a><a name="8.3"></a>
-  - [8.3](#arrows--paren-wrap) In case the expression spans over multiple lines, wrap it in parentheses for better readability.
+  - [8.3](#arrows--paren-wrap) In case the expression spans over multiple lines, wrap it in parentheses for better readability. 
 
     > Why? It shows clearly where the function starts and ends.
 
@@ -1048,7 +1048,7 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
 
 
   <a name="constructors--tostring"></a><a name="9.4"></a>
-  - [9.4](#constructors--tostring) It's okay to write a custom toString() method, just make sure it works successfully and causes no side effects.
+  - [9.4](#constructors--tostring) It's okay to write a custom `toString()` method, just make sure it works successfully and causes no side effects.
 
     ```javascript
     class Jedi {
@@ -1173,8 +1173,8 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     ```
 
   <a name="modules--no-duplicate-imports"></a><a name="10.4"></a>
-  - [10.4](#modules--no-duplicate-imports) Only import from a path in one place.
- eslint: [`no-duplicate-imports`](http://eslint.org/docs/rules/no-duplicate-imports)
+  - [10.4](#modules--no-duplicate-imports) Only import from a path in one place. eslint: [`no-duplicate-imports`](http://eslint.org/docs/rules/no-duplicate-imports)
+  
     > Why? Having multiple lines that import from the same path can make code harder to maintain.
 
     ```javascript
@@ -1194,8 +1194,8 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     ```
 
   <a name="modules--no-mutable-exports"></a><a name="10.5"></a>
-  - [10.5](#modules--no-mutable-exports) Do not export mutable bindings.
- eslint: [`import/no-mutable-exports`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-mutable-exports.md)
+  - [10.5](#modules--no-mutable-exports) Do not export mutable bindings. eslint: [`import/no-mutable-exports`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-mutable-exports.md)
+  
     > Why? Mutation should be avoided in general, but in particular when exporting mutable bindings. While this technique may be needed for some special cases, in general, only constant references should be exported.
 
     ```javascript
@@ -1209,8 +1209,7 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     ```
 
   <a name="modules--prefer-default-export"></a><a name="10.6"></a>
-  - [10.6](#modules--prefer-default-export) In modules with a single export, prefer default export over named export.
- eslint: [`import/prefer-default-export`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/prefer-default-export.md)
+  - [10.6](#modules--prefer-default-export) In modules with a single export, prefer default export over named export. eslint: [`import/prefer-default-export`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/prefer-default-export.md)
 
     ```javascript
     // bad
@@ -1221,8 +1220,8 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     ```
 
   <a name="modules--imports-first"></a><a name="10.7"></a>
-  - [10.7](#modules--imports-first) Put all `import`s above non-import statements.
- eslint: [`import/first`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/first.md)
+  - [10.7](#modules--imports-first) Put all `import`s above non-import statements. eslint: [`import/first`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/first.md)
+  
     > Why? Since `import`s are hoisted, keeping them all at the top prevents surprising behavior.
 
     ```javascript
@@ -1261,6 +1260,7 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
   <a name="modules--no-webpack-loader-syntax"></a><a name="10.9"></a>
   - [10.9](#modules--no-webpack-loader-syntax) Disallow Webpack loader syntax in module import statements.
  eslint: [`import/no-webpack-loader-syntax`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-webpack-loader-syntax.md)
+
     > Why? Since using Webpack syntax in the imports couples the code to a module bundler. Prefer using the loader syntax in `webpack.config.js`.
 
     ```javascript
@@ -1524,7 +1524,7 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     }
     ```
   <a name="variables--no-chain-assignment"></a><a name="13.5"></a>
-  - [13.5](#variables--no-chain-assignment) Don't chain variable assignments.
+  - [13.5](#variables--no-chain-assignment) Don't chain variable assignments. eslint: [`one-var`](one-var)
 
     > Why? Chaining variable assignments creates implicit global variables.
 
@@ -1596,7 +1596,7 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
 ## Hoisting
 
   <a name="hoisting--about"></a><a name="14.1"></a>
-  - [14.1](#hoisting--about) `var` declarations get hoisted to the top of their scope, their assignment does not. `const` and `let` declarations are blessed with a new concept called [Temporal Dead Zones (TDZ)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#Temporal_dead_zone_and_errors_with_let). It's important to know why [typeof is no longer safe](http://es-discourse.com/t/why-typeof-is-no-longer-safe/15).
+  - [14.1](#hoisting--about) `var` declarations get hoisted to the top of their scope, their assignment does not. `const` and `let` declarations are blessed with a new concept called [Temporal Dead Zones (TDZ)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#Temporal_dead_zone_and_errors_with_let). It's important to know why [typeof is no longer safe](http://es-discourse.com/t/why-typeof-is-no-longer-safe/15). eslint: [`no-var`](http://eslint.org/docs/rules/no-var)
 
     ```javascript
     // we know this wouldn't work (assuming there
@@ -2390,6 +2390,37 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
       .fail(() => console.log('You have failed this city.'));
     ```
 
+<a name="whitespace--max-blank-lines"></a><a name="18.13"></a>
+- [18.13](#whitespace--max-blank-lines) Avoid having more than one blank consecutive blank line. Blank lines can be used to denote a logical separation of concerns, but when more than one is present, it disrupt the code reading rythym. eslint: [`no-multiple-empty-lines`](http://eslint.org/docs/rules/no-multiple-empty-lines)
+
+    ```javascript
+    // bad
+    function doSomething() {
+      return 1;
+    }
+
+
+    const something = doSomething();
+
+    // good
+    function doSomething() {
+      return 1;
+    }
+
+    const something = doSomething();
+    ```
+
+<a name="whitespace--trailing"></a><a name="18.14"></a>
+- [18.14](#whitespace--trailing) Avoid trailing spaces in lines. These just take space and make copy-pasting awkward. eslint: [`no-trailing-spaces`](http://eslint.org/docs/rules/no-trailing-spaces)
+
+    ```javascript
+    // bad
+    const myConst = 1;∙∙∙∙
+
+    // good
+    const myConst = 1;
+    ```
+
 **[⬆ back to top](#table-of-contents)**
 
 ## Commas
@@ -2580,7 +2611,7 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     ```
 
   <a name="coercion--numbers"></a><a name="21.3"></a>
-  - [21.3](#coercion--numbers) Numbers: Use `Number` for type casting and `parseInt` always with a radix for parsing strings. eslint: [`radix`](http://eslint.org/docs/rules/radix)
+  - [21.3](#coercion--numbers) Numbers: Use `Number` for type casting and `parseInt` always with a radix for parsing strings. eslint: [`radix`](http://eslint.org/docs/rules/radix), [`no-implicit-coercion`](http://eslint.org/docs/rules/no-implicit-coercion)
 
     ```javascript
     const inputValue = '4';
@@ -2717,7 +2748,7 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     ```
 
   <a name="naming--self-this"></a><a name="22.5"></a>
-  - [22.5](#naming--self-this) Don't save references to `this`. Use arrow functions or [Function#bind](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind).
+  - [22.5](#naming--self-this) Don't save references to `this`. Use arrow functions or [Function#bind](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind). eslint: [`consistent-this`](http://eslint.org/docs/rules/consistent-this)
 
     ```javascript
     // bad
@@ -2858,7 +2889,7 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     ```
 
   <a name="accessors--consistent"></a><a name="23.3"></a>
-  - [23.3](#accessors--consistent) It's okay to create get() and set() functions, but be consistent.
+  - [23.3](#accessors--consistent) It's okay to create `get()` and `set()` functions, but be consistent.
 
     ```javascript
     class Jedi {
