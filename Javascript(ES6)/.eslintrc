@@ -73,6 +73,7 @@
     "id-length": ["warn", { "min": 2, "properties": "never" }],
     "camelcase": ["error", { "properties": "always" }],
     "new-cap": ["error", { "newIsCap": true, "capIsNew": false, "properties": true }],
-    "no-underscore-dangle": ["error", { "allowAfterThis": false, "allowAfterSuper": false }]
+    "no-underscore-dangle": ["error", { "allowAfterThis": false, "allowAfterSuper": false }],
+    "prefer-destructuring": ["warn", { "array": false, "object": true }, { "enforceForRenamedProperties": false }]
   }
 }
