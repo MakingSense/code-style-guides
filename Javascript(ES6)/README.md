@@ -3070,7 +3070,6 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
 
   - Code Style Linters
     + [ESlint](http://eslint.org/) - [Making Sense Style .eslintrc](.eslintrc)
-    + [JSHint](http://jshint.com/) - [Airbnb Style .jshintrc](https://github.com/airbnb/javascript/blob/master/linters/.jshintrc)
 
 **Other Style Guides**
 
