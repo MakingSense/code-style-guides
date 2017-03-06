@@ -29,7 +29,7 @@
     "no-new-func": ["error"],
     "space-before-function-paren": ["error", "never"],
     "space-before-blocks": ["error", "always"],
-    "no-param-reassign": ["error", { "props": false }],
+    "no-param-reassign": ["error", { "props": true }],
     "prefer-spread": ["error"],
     "prefer-arrow-callback": ["error", { "allowNamedFunctions": false, "allowUnboundThis": false }],
     "arrow-spacing": ["error", { "before": true, "after": true }],
@@ -74,6 +74,12 @@
     "camelcase": ["error", { "properties": "always" }],
     "new-cap": ["error", { "newIsCap": true, "capIsNew": false, "properties": true }],
     "no-underscore-dangle": ["error", { "allowAfterThis": false, "allowAfterSuper": false }],
-    "prefer-destructuring": ["warn", { "array": false, "object": true }, { "enforceForRenamedProperties": false }]
+    "prefer-destructuring": ["warn", { "array": true, "object": true }, { "enforceForRenamedProperties": false }],
+    "no-prototype-builtins": ["warn"],
+    "no-eval": ["error", { "allowIndirect": false }],
+    "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 1, "maxBOF": 1 }],
+    "no-trailing-spaces": ["error", { "skipBlankLines": false }],
+    "no-implicit-coercion": ["error", { "boolean": false, "number": true, "string": true }],
+    "consistent-this": ["error"]
   }
 }
