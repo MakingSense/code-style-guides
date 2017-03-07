@@ -1098,6 +1098,7 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
       return type;
     }
     ```
+
   - Start all comments with a space to make it easier to read.
 
     eslint: [`spaced-comment`](http://eslint.org/docs/rules/spaced-comment)
