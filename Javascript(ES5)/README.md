@@ -959,23 +959,23 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     > Why? Side effects written in a single line disrupt the rythym of code reading for other developers. Furthermore, if you happen to be debugging line-by-line, side effects in ternary are difficult to work with.
 
     ```javascript
-     // bad
-      var myResult = (a += 1 > 0) ? a *= 2 : a;
+    // bad
+    var myResult = (a += 1 > 0) ? a *= 2 : a;
 
-      // good: removes side effects from the ternary
-      a += 1;
-      var isAPositive = a > 0;
-      var aDoubled = a * 2;
-      var myResult = isAPositive ? aDoubled : a;
+    // good: removes side effects from the ternary
+    a += 1;
+    var isAPositive = a > 0;
+    var aDoubled = a * 2;
+    var myResult = isAPositive ? aDoubled : a;
 
-      // bad
-      shouldBeVisible ? show() : hide();
+    // bad
+    shouldBeVisible ? show() : hide();
 
-      // good: uses if for branching logic
-      if (shouldBeVisible)
-          show();
-      else
-          hide();
+    // good: uses if for branching logic
+    if (shouldBeVisible)
+      show();
+    else
+      hide();
     ```
 
 **[⬆ back to top](#table-of-contents)**
