@@ -1788,32 +1788,32 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
 
   - **Note:** IE8 and below exhibit some quirks with named function expressions.  See [http://kangax.github.io/nfe/](http://kangax.github.io/nfe/) for more info.
 
-  - Acronyms and initialisms should always be all capitalized, or all lowercased.
+  - Acronyms and initialisms should keep the casing of the variable / object you're naming.
 
-    > Why? Names are for readability, not to appease a computer algorithm.
+    > Why? Acronyms in all capitals are harder to read.
 
     ```javascript
     // bad
-    import SmsContainer from './containers/SmsContainer';
+    import SMSContainer from './containers/SMSContainer';
 
     // bad
     var HttpRequests = [
       // ...
     ];
 
-    // good
-    import SMSContainer from './containers/SMSContainer';
-
-    // good
+    // bad
     var HTTPRequests = [
       // ...
     ];
 
-    // best
-    import TextMessageContainer from './containers/TextMessageContainer';
+    // Good
+    import smsContainer from './containers/smsContainer';
 
-    // best
-    var Requests = [
+    // Good (if it's a class)
+    import ContainerFactory from './containers/ContainerFactory';
+
+    // good
+    var httpRequests = [
       // ...
     ];
     ```
