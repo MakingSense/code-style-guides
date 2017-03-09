@@ -58,6 +58,7 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
 
     console.log(foo, bar); // => 1, 9
     ```
+
   - **Complex**: When you access a complex type you work on a reference to its value.
 
     + `object`
@@ -79,6 +80,8 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
 
   - Use the literal syntax for object creation.
 
+    eslint: [`no-new-object`](http://eslint.org/docs/rules/no-new-object.html)
+
     ```javascript
     // bad
     var item = new Object();
@@ -86,6 +89,23 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     // good
     var item = {};
     ```
+
+    **Note:** Exceptions are allowed for when _bare objects_ are required. You can see a valid use case in [True Hashmaps in JavaScript](http://ryanmorr.com/true-hash-maps-in-javascript/). In a case like that, prefer the object creation without a prototype instead of removing the prototype from the object.
+    
+   Note that the recommended usage is not technically a violation of the code style rule, but we include it anyway since it will feel to the developer as a step backwards in the simple object creation direction.
+
+   ```javascript
+   // awful -- non standard
+   var myHashMap = {};
+   myHashMap.__proto__ = null;
+   
+   // bad
+   var myHashMap = {};
+   Object.setPrototype(myHashMap, null);
+   
+   // good
+   var myHashMap = Object.create(null);
+   ```
 
   - Don't use [reserved words](http://es5.github.io/#x7.6.1) as keys. It won't work in IE8. [More info](https://github.com/airbnb/javascript/issues/61).
 
@@ -128,6 +148,8 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
 
   - Use the literal syntax for array creation.
 
+    eslint: [`no-array-constructor`](http://eslint.org/docs/rules/no-array-constructor.html)
+
     ```javascript
     // bad
     var items = new Array();
@@ -136,7 +158,7 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     var items = [];
     ```
 
-  - Use Array#push instead of direct assignment to add items to an array.
+  - Use [Array#push](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/push) instead of direct assignment to add items to an array.
 
     ```javascript
     var someStack = [];
@@ -149,7 +171,7 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     someStack.push('abracadabra');
     ```
 
-  - When you need to copy an array use Array#slice. [jsPerf](http://jsperf.com/converting-arguments-to-an-array/7)
+  - When you need to copy an array use [Array#slice](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/slice). [jsPerf](http://jsperf.com/converting-arguments-to-an-array/7)
 
     ```javascript
     var len = items.length;
@@ -170,7 +192,7 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     ```javascript
     function trigger() {
       var args = Array.prototype.slice.call(arguments);
-      ...
+      // ...
     }
     ```
 
@@ -180,6 +202,8 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
 ## Strings
 
   - Use single quotes `''` for strings.
+
+    eslint: [`quotes`](http://eslint.org/docs/rules/quotes.html)
 
     ```javascript
     // bad
@@ -195,24 +219,27 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     var fullName = 'Bob ' + this.lastName;
     ```
 
-  - Strings longer than 100 characters should be written across multiple lines using string concatenation.
-  - Note: If overused, long strings with concatenation could impact performance. [jsPerf](http://jsperf.com/ya-string-concat) & [Discussion](https://github.com/airbnb/javascript/issues/40).
+  - Strings that cause the line to go over 100 characters should not be written across multiple lines using string concatenation.
+
+    eslint: [`max-len`](http://eslint.org/docs/rules/max-len.html)
 
     ```javascript
-    // bad
-    var errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
-
     // bad
     var errorMessage = 'This is a super long error that was thrown because \
     of Batman. When you stop to think about how Batman had anything to do \
     with this, you would get nowhere \
     fast.';
 
-    // good
+    // bad
     var errorMessage = 'This is a super long error that was thrown because ' +
       'of Batman. When you stop to think about how Batman had anything to do ' +
       'with this, you would get nowhere fast.';
+
+    // good
+    var errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
     ```
+
+  - **Note:** If overused, long strings with concatenation could impact performance. [jsPerf](http://jsperf.com/ya-string-concat) & [Discussion](https://github.com/airbnb/javascript/issues/40).
 
   - When programmatically building up a string, use Array#join instead of string concatenation. Mostly for IE: [jsPerf](http://jsperf.com/string-vs-array-concat/2).
 
@@ -259,6 +286,52 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     }
     ```
 
+  - Avoid having lines of code that are longer than 100 characters (including whitespace). Note: per above, long strings are exempt from this rule, and should not be broken up.
+
+    eslint: [`max-len`](http://eslint.org/docs/rules/max-len.html)
+
+    ```javascript
+    // bad
+    var foo = jsonData && jsonData.foo && jsonData.foo.bar && jsonData.foo.bar.baz && jsonData.foo.bar.baz.quux && jsonData.foo.bar.baz.quux.xyzzy;
+
+    // bad
+    $.ajax({ method: 'POST', url: 'https://airbnb.com/', data: { name: 'John' } }).done(function() { console.log('Congratulations!')}).fail(function() { console.log('You have failed this city.')});
+
+    // good
+    var foo = jsonData
+      && jsonData.foo
+      && jsonData.foo.bar
+      && jsonData.foo.bar.baz
+      && jsonData.foo.bar.baz.quux
+      && jsonData.foo.bar.baz.quux.xyzzy;
+
+    // good
+    $.ajax({
+      method: 'POST',
+      url: 'https://airbnb.com/',
+      data: { name: 'John' },
+    })
+      .done(function() { console.log('Congratulations!'))})
+      .fail(function() { console.log('You have failed this city.'))});
+    ```
+
+  - Never use `eval()` on a string, it opens too many vulnerabilities.
+
+    eslint: [`no-eval`](http://eslint.org/docs/rules/no-eval)
+
+  - Do not unnecessarily escape characters in strings.
+
+    eslint: [`no-useless-escape`](http://eslint.org/docs/rules/no-useless-escape)
+
+    ```javascript
+    // bad
+    var foo = '\'this\' \i\s \"quoted\"';
+
+    // good
+    var foo = '\'this\' is "quoted"';
+    var bar = "here I needed 'single' quotes, so I used double to avoid escaping";
+    ```
+
 **[⬆ back to top](#table-of-contents)**
 
 
@@ -283,7 +356,46 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     }());
     ```
 
-  - Never declare a function in a non-function block (if, while, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news bears.
+  - Use named function expressions instead of function declarations.
+
+    eslint: [`func-style`](http://eslint.org/docs/rules/func-style)
+
+    > Why? Function declarations are hoisted, which means that it’s easy - too easy - to reference the function before it is defined in the file. This harms readability and maintainability. If you find that a function’s definition is large or complex enough that it is interfering with understanding the rest of the file, then perhaps it’s time to extract it to its own module! Don’t forget to name the expression - anonymous functions can make it harder to locate the problem in an Error's call stack. ([Discussion](https://github.com/airbnb/javascript/issues/794))
+
+    ```javascript
+    // bad
+    function foo() {
+      // ...
+    }
+
+    // bad
+    var foo = function () {
+      // ...
+    };
+
+    // good
+    var foo = function bar() {
+      // ...
+    };
+    ```
+
+  - Wrap immediately invoked function expressions in parentheses.
+
+    > Why? An immediately invoked function expression is a single unit - wrapping both it, and its invocation parens, in parens, cleanly expresses this. Note that in a world with modules everywhere, you almost never need an IIFE.
+   
+    eslint: [`wrap-iife`](http://eslint.org/docs/rules/wrap-iife.html)
+
+    ```javascript
+    // immediately-invoked function expression (IIFE)
+    (function () {
+      console.log('Welcome to the Internet. Please follow me.');
+    }());
+    ```
+
+  - Never declare a function in a non-function block (`if`, `while`, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news.
+
+    eslint: [`no-loop-func`](http://eslint.org/docs/rules/no-loop-func.html)
+
   - **Note:** ECMA-262 defines a `block` as a list of statements. A function declaration is not a statement. [Read ECMA-262's note on this issue](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
 
     ```javascript
@@ -317,8 +429,116 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     }
     ```
 
-**[⬆ back to top](#table-of-contents)**
+  - Never use the Function constructor to create a new function.
+   
+   > Why? Creating a function in this way evaluates a string similarly to eval(), which opens vulnerabilities.
 
+    eslint: [`no-new-func`](http://eslint.org/docs/rules/no-new-func)
+
+    ```javascript
+    // bad
+    var add = new Function('a', 'b', 'return a + b');
+
+    // still bad
+    var subtract = Function('a', 'b', 'return a - b');
+    ```
+
+  - Spacing in a function signature.
+  
+    > Why? Consistency is good, and you shouldn’t have to add or remove a space when adding or removing a name.
+
+    eslint: [`space-before-function-paren`](http://eslint.org/docs/rules/space-before-function-paren) [`space-before-blocks`](http://eslint.org/docs/rules/space-before-blocks)
+
+    ```javascript
+    // bad
+    var f = function(){};
+    var g = function (){};
+    var h = function() {};
+
+    // good
+    var x = function () {};
+    var y = function a() {};
+    ```
+
+  - Never mutate parameters.
+   
+   > Why? Manipulating objects passed in as parameters can cause unwanted variable side effects in the original caller.
+
+    eslint: [`no-param-reassign`](http://eslint.org/docs/rules/no-param-reassign.html)
+
+    ```javascript
+    // bad
+    function f1(obj) {
+      obj.key = 1;
+    }
+
+    // good
+    function f2(obj) {
+      var key = Object.prototype.hasOwnProperty.call(obj, 'key') ? obj.key : 1;
+    }
+    ```
+
+  - Never reassign parameters.
+
+    > Why? Reassigning parameters can lead to unexpected behavior, especially when accessing the arguments object. It can also cause optimization issues, especially in V8.
+
+    eslint: [`no-param-reassign`](http://eslint.org/docs/rules/no-param-reassign.html)
+
+    ```javascript
+    // bad
+    function f1(a) {
+      a = 1;
+      // ...
+    }
+
+    // bad
+    function f2(a) {
+      if (!a) { a = 1; }
+      // ...
+    }
+
+    // good: use a different variable for the manipulation required
+    function f3(a) {
+      const b = a || 1;
+      // ...
+    }
+    ```
+
+  - Functions with multiline signatures, or invocations, should be indented just like every other multiline list in this guide: with each item on a line by itself, with a trailing comma on the last item.
+   
+    eslint: [`indent`](http://eslint.org/docs/rules/indent)
+
+    ```javascript
+    // bad
+    function foo(bar,
+                 baz,
+                 quux) {
+      // ...
+    }
+
+    // good
+    function foo(
+      bar,
+      baz,
+      quux,
+    ) {
+      // ...
+    }
+
+    // bad
+    console.log(foo,
+      bar,
+      baz);
+
+    // good
+    console.log(
+      foo,
+      bar,
+      baz,
+    );
+    ```
+
+**[⬆ back to top](#table-of-contents)**
 
 
 ## Properties
@@ -338,7 +558,7 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     var isJedi = luke.jedi;
     ```
 
-  - Use subscript notation `[]` when accessing properties with a variable.
+  - Use bracket notation `[]` when accessing properties with a variable.
 
     ```javascript
     var luke = {
@@ -360,6 +580,8 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
 
   - Always use `var` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that.
 
+    eslint: [`no-undef`](http://eslint.org/docs/rules/no-undef)
+
     ```javascript
     // bad
     superPower = new SuperPower();
@@ -369,7 +591,8 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     ```
 
   - Use one `var` declaration per variable.
-    It's easier to add new variable declarations this way, and you never have
+    
+    > Why? It's easier to add new variable declarations this way, and you never have
     to worry about swapping out a `;` for a `,` or introducing punctuation-only
     diffs.
 
@@ -477,6 +700,71 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     }
     ```
 
+  - Don't chain variable assignments.
+
+    > Why? Chaining variable assignments creates implicit global variables.
+    
+    eslint: [`one-var`](http://eslint.org/docs/rules/one-var)
+
+    ```javascript
+    // bad
+    (function example() {
+      // JavaScript interprets this as
+      // var a = ( b = ( c = 1 ) );
+      // The var keyword only applies to variable a; variables b and c become
+      // global variables.
+      var a = b = c = 1;
+    }());
+
+    console.log(a); // undefined
+    console.log(b); // 1
+    console.log(c); // 1
+
+    // good
+    (function example() {
+      var a = 1;
+      var b = a;
+      var c = a;
+    }());
+
+    console.log(a); // undefined
+    console.log(b); // undefined
+    console.log(c); // undefined
+    ```
+
+  - Avoid using unary increments and decrements (++, --).
+
+    > Why? Per the eslint documentation, unary increment and decrement statements are subject to automatic semicolon insertion and can cause silent errors with incrementing or decrementing values within an application. It is also more expressive to mutate your values with statements like num += 1 instead of num++ or num ++. Disallowing unary increment and decrement statements also prevents you from pre-incrementing/pre-decrementing values unintentionally which can also cause unexpected behavior in your programs.
+
+    eslint: [`no-plusplus`](http://eslint.org/docs/rules/no-plusplus)
+
+    ```javascript
+    // bad
+    var num = 1;
+    num++;
+    --num;
+
+    var array = [1, 2, 3];
+    var sum = 0;
+    var truthyCount = 0;
+    for (var i = 0; i < array.length; i++) {
+      var value = array[i];
+      sum += value;
+      if (value) {
+        truthyCount++;
+      }
+    }
+
+    // good
+    var num = 1;
+    num += 1;
+    num -= 1;
+
+    var array = [1, 2, 3];
+    var sum = array.reduce(function(a, b) { return a + b }, 0);
+    var truthyCount = array.filter(Boolean).length;
+    ```
+
 **[⬆ back to top](#table-of-contents)**
 
 
@@ -569,10 +857,12 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
 **[⬆ back to top](#table-of-contents)**
 
 
-
 ## Comparison Operators & Equality
 
   - Use `===` and `!==` over `==` and `!=`.
+
+    eslint: [`eqeqeq`](http://eslint.org/docs/rules/eqeqeq.html)
+
   - Conditional statements such as the `if` statement evaluate their expression using coercion with the `ToBoolean` abstract method and always follow these simple rules:
 
     + **Objects** evaluate to **true**
@@ -583,37 +873,110 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     + **Strings** evaluate to **false** if an empty string `''`, otherwise **true**
 
     ```javascript
-    if ([0]) {
+    if ([0] && []) {
       // true
-      // An array is an object, objects evaluate to true
+      // an array (even an empty one) is an object, objects will evaluate to true
     }
     ```
 
-  - Use shortcuts.
+  - Use shortcuts for booleans, but explicit comparisons for strings and numbers.
 
     ```javascript
     // bad
-    if (name !== '') {
-      // ...stuff...
+    if (isValid === true) {
+      // ...
     }
 
     // good
-    if (name) {
-      // ...stuff...
+    if (isValid) {
+      // ...
     }
 
     // bad
-    if (collection.length > 0) {
-      // ...stuff...
+    if (name) {
+      // ...
     }
 
     // good
+    if (name !== '') {
+      // ...
+    }
+
+    // bad
     if (collection.length) {
-      // ...stuff...
+      // ...
+    }
+
+    // good
+    if (collection.length > 0) {
+      // ...
     }
     ```
 
   - For more information see [Truth Equality and JavaScript](http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) by Angus Croll.
+
+  - Ternaries should not be nested and generally be single line expressions.
+
+    eslint: [`no-nested-ternary`](http://eslint.org/docs/rules/no-nested-ternary)
+
+    ```javascript
+    // bad
+    var foo = maybe1 > maybe2
+      ? "bar"
+      : value1 > value2 ? "baz" : null;
+
+    // better
+    var maybeNull = value1 > value2 ? 'baz' : null;
+
+    var foo = maybe1 > maybe2
+      ? 'bar'
+      : maybeNull;
+
+    // best
+    var maybeNull = value1 > value2 ? 'baz' : null;
+
+    var foo = maybe1 > maybe2 ? 'bar' : maybeNull;
+    ```
+
+  - Avoid unneeded ternary statements.
+
+    eslint rules: [`no-unneeded-ternary`](http://eslint.org/docs/rules/no-unneeded-ternary.html)
+
+    ```javascript
+    // bad
+    var foo = a ? a : b;
+    var bar = c ? true : false;
+    var baz = c ? false : true;
+
+    // good
+    var foo = a || b;
+    var bar = !!c;
+    var baz = !c;
+    ```
+
+  - Avoid side effects in ternary comparisons. Prefer if statements in cases like that.
+
+    > Why? Side effects written in a single line disrupt the rythym of code reading for other developers. Furthermore, if you happen to be debugging line-by-line, side effects in ternary are difficult to work with.
+
+    ```javascript
+    // bad
+    var myResult = (a += 1 > 0) ? a *= 2 : a;
+
+    // good: removes side effects from the ternary
+    a += 1;
+    var isAPositive = a > 0;
+    var aDoubled = a * 2;
+    var myResult = isAPositive ? aDoubled : a;
+
+    // bad
+    shouldBeVisible ? show() : hide();
+
+    // good: uses if for branching logic
+    if (shouldBeVisible)
+      show();
+    else
+      hide();
+    ```
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -647,6 +1010,8 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
   - If you're using multi-line blocks with `if` and `else`, put `else` on the same line as your
     `if` block's closing brace.
 
+    eslint: [`brace-style`](http://eslint.org/docs/rules/brace-style.html)
+
     ```javascript
     // bad
     if (test) {
@@ -672,7 +1037,7 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
 
 ## Comments
 
-  - Use `/** ... */` for multi-line comments. Include a description, specify types and values for all parameters and return values.
+  - Use `/** ... */` for multi-line comments.
 
     ```javascript
     // bad
@@ -704,7 +1069,7 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     }
     ```
 
-  - Use `//` for single line comments. Place single line comments on a newline above the subject of the comment. Put an empty line before the comment.
+  - Use `//` for single line comments. Place single line comments on a newline above the subject of the comment. Put an empty line before the comment unless it's on the first line of a block.
 
     ```javascript
     // bad
@@ -734,6 +1099,40 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     }
     ```
 
+  - Start all comments with a space to make it easier to read.
+
+    eslint: [`spaced-comment`](http://eslint.org/docs/rules/spaced-comment)
+
+    ```javascript
+    // bad
+    //is current tab
+    var active = true;
+
+    // good
+    // is current tab
+    var active = true;
+
+    // bad
+    /**
+     *make() returns a new element
+     *based on the passed-in tag name
+     */
+    function make(tag) {
+      // ...
+      return element;
+    }
+
+    // good
+    /**
+     + make() returns a new element
+     + based on the passed-in tag name
+     */
+    function make(tag) {
+      // ...
+      return element;
+    }
+    ```
+
   - Prefixing your comments with `FIXME` or `TODO` helps other developers quickly understand if you're pointing out a problem that needs to be revisited, or if you're suggesting a solution to the problem that needs to be implemented. These are different than regular comments because they are actionable. The actions are `FIXME -- need to figure this out` or `TODO -- need to implement`.
 
   - Use `// FIXME:` to annotate problems.
@@ -743,8 +1142,6 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
 
       // FIXME: shouldn't use a global here
       total = 0;
-
-      return this;
     }
     ```
 
@@ -755,8 +1152,6 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
 
       // TODO: total should be configurable by an options param
       this.total = 0;
-
-      return this;
     }
     ```
 
@@ -765,7 +1160,9 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
 
 ## Whitespace
 
-  - Use soft tabs set to 2 spaces.
+  - Use soft tabs (space character) set to 2 spaces.
+  
+    eslint: [`indent`](http://eslint.org/docs/rules/indent.html)
 
     ```javascript
     // bad
@@ -785,6 +1182,8 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     ```
 
   - Place 1 space before the leading brace.
+
+    eslint: [`space-before-blocks`](http://eslint.org/docs/rules/space-before-blocks.html)
 
     ```javascript
     // bad
@@ -812,6 +1211,8 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
 
   - Place 1 space before the opening parenthesis in control statements (`if`, `while` etc.). Place no space before the argument list in function calls and declarations.
 
+    eslint: [`keyword-spacing`](http://eslint.org/docs/rules/keyword-spacing)
+
     ```javascript
     // bad
     if(isJedi) {
@@ -836,6 +1237,8 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
 
   - Set off operators with spaces.
 
+    eslint: [`space-infix-ops`](http://eslint.org/docs/rules/space-infix-ops)
+
     ```javascript
     // bad
     var x=y+5;
@@ -845,6 +1248,8 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     ```
 
   - End files with a single newline character.
+
+    eslint: [`eol-last`](https://github.com/eslint/eslint/blob/master/docs/rules/eol-last)
 
     ```javascript
     // bad
@@ -870,6 +1275,8 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
 
   - Use indentation when making long method chains. Use a leading dot, which
     emphasizes that the line is a method call, not a new statement.
+
+    eslint: [`newline-per-chained-call`](http://eslint.org/docs/rules/newline-per-chained-call) [`no-whitespace-before-property`](http://eslint.org/docs/rules/no-whitespace-before-property)
 
     ```javascript
     // bad
@@ -945,12 +1352,132 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     return obj;
     ```
 
+  - Do not pad your blocks with blank lines.
+
+    eslint: [`padded-blocks`](http://eslint.org/docs/rules/padded-blocks.html)
+
+    ```javascript
+    // bad
+    function bar() {
+
+      console.log(foo);
+
+    }
+
+    // also bad
+    if (baz) {
+
+      console.log(qux);
+    } else {
+      console.log(foo);
+
+    }
+
+    // good
+    function bar() {
+      console.log(foo);
+    }
+
+    // good
+    if (baz) {
+      console.log(qux);
+    } else {
+      console.log(foo);
+    }
+    ```
+
+  - Do not add spaces inside parentheses.
+  
+    eslint: [`space-in-parens`](http://eslint.org/docs/rules/space-in-parens.html)
+
+    ```javascript
+    // bad
+    function bar( foo ) {
+      return foo;
+    }
+
+    // good
+    function bar(foo) {
+      return foo;
+    }
+
+    // bad
+    if ( foo ) {
+      console.log(foo);
+    }
+
+    // good
+    if (foo) {
+      console.log(foo);
+    }
+    ```
+
+  - Do not add spaces inside brackets.
+
+    eslint: [`array-bracket-spacing`](http://eslint.org/docs/rules/array-bracket-spacing.html)
+
+    ```javascript
+    // bad
+    var foo = [ 1, 2, 3 ];
+    console.log(foo[ 0 ]);
+
+    // good
+    var foo = [1, 2, 3];
+    console.log(foo[0]);
+    ```
+
+  - Add spaces inside curly braces.
+
+    eslint: [`object-curly-spacing`](http://eslint.org/docs/rules/object-curly-spacing.html)
+
+    ```javascript
+    // bad
+    var foo = {clark: 'kent'};
+
+    // good
+    var foo = { clark: 'kent' };
+    ```
+
+  - Avoid having more than one blank consecutive blank line. Blank lines can be used to denote a logical separation of concerns, but when more than one is present, it disrupt the code reading rythym.
+
+    eslint: [`no-multiple-empty-lines`](http://eslint.org/docs/rules/no-multiple-empty-lines)
+
+    ```javascript
+    // bad
+    function doSomething() {
+      return 1;
+    }
+
+
+    var something = doSomething();
+
+    // good
+    function doSomething() {
+      return 1;
+    }
+
+    var something = doSomething();
+    ```
+
+  - Avoid trailing spaces in lines. These just take space and make copy-pasting awkward.
+
+  eslint: [`no-trailing-spaces`](http://eslint.org/docs/rules/no-trailing-spaces)
+
+  ```javascript
+  // bad
+  var myVar = 1;∙∙∙∙
+
+  // good
+  var myVar = 1;
+  ```
 
 **[⬆ back to top](#table-of-contents)**
 
 ## Commas
 
   - Leading commas: **Nope.**
+
+    eslint: [`comma-style`](http://eslint.org/docs/rules/comma-style.html)
 
     ```javascript
     // bad
@@ -986,7 +1513,9 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
 
   - Additional trailing comma: **Nope.** This can cause problems with IE6/7 and IE9 if it's in quirksmode. Also, in some implementations of ES3 would add length to an array if it had an additional trailing comma. This was clarified in ES5 ([source](http://es5.github.io/#D)):
 
-  > Edition 5 clarifies the fact that a trailing comma at the end of an ArrayInitialiser does not add to the length of the array. This is not a semantic change from Edition 3 but some implementations may have previously misinterpreted this.
+    > Edition 5 clarifies the fact that a trailing comma at the end of an ArrayInitialiser does not add to the length of the array. This is not a semantic change from Edition 3 but some implementations may have previously misinterpreted this.
+
+    eslint: [`comma-dangle`](http://eslint.org/docs/rules/comma-dangle.html)
 
     ```javascript
     // bad
@@ -1019,6 +1548,8 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
 
   - **Yup.**
 
+    eslint: [`semi`](http://eslint.org/docs/rules/semi)
+
     ```javascript
     // bad
     (function () {
@@ -1047,6 +1578,7 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
 ## Type Casting & Coercion
 
   - Perform type coercion at the beginning of the statement.
+
   - Strings:
 
     ```javascript
@@ -1065,7 +1597,9 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     var totalScore = this.reviewScore + ' total score';
     ```
 
-  - Use `parseInt` for Numbers and always with a radix for type casting.
+  - Numbers: Use `Number` for type casting and `parseInt` always with a radix for parsing strings. 
+
+    eslint: [`radix`](http://eslint.org/docs/rules/radix) [`no-implicit-coercion`](http://eslint.org/docs/rules/no-implicit-coercion)
 
     ```javascript
     var inputValue = '4';
@@ -1131,6 +1665,8 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
 
   - Avoid single letter names. Be descriptive with your naming.
 
+    eslint: [`id-length`](http://eslint.org/docs/rules/id-length)
+
     ```javascript
     // bad
     function q() {
@@ -1145,6 +1681,8 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
 
   - Use camelCase when naming objects, functions, and instances.
 
+    eslint: [`camelcase`](http://eslint.org/docs/rules/camelcase)
+
     ```javascript
     // bad
     var OBJEcttsssss = {};
@@ -1158,6 +1696,8 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     ```
 
   - Use PascalCase when naming constructors or classes.
+
+    eslint: [`new-cap`](http://eslint.org/docs/rules/new-cap.html)
 
     ```javascript
     // bad
@@ -1181,7 +1721,9 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
 
   - Do not use trailing or leading underscores.
 
-  > Why? JavaScript does not have the concept of privacy in terms of properties or methods. Although a leading underscore is a common convention to mean “private”, in fact, these properties are fully public, and as such, are part of your public API contract. This convention might lead developers to wrongly think that a change won't count as breaking, or that tests aren't needed. tl;dr: if you want something to be “private”, it must not be observably present.
+    > Why? JavaScript does not have the concept of privacy in terms of properties or methods. Although a leading underscore is a common convention to mean “private”, in fact, these properties are fully public, and as such, are part of your public API contract. This convention might lead developers to wrongly think that a change won't count as breaking, or that tests aren't needed. tl;dr: if you want something to be “private”, it must not be observably present.
+
+    eslint: [`no-underscore-dangle`](http://eslint.org/docs/rules/no-underscore-dangle)
 
     ```javascript
     // bad
@@ -1193,7 +1735,9 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     this.firstName = 'Panda';
     ```
 
-  - Don't save references to this. Use Function#bind.
+  - Don't save references to this. Use [`Function#bind`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind).
+
+    eslint: [`consistent-this`](http://eslint.org/docs/rules/consistent-this)
 
     ```javascript
     // bad
@@ -1244,23 +1788,34 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
 
   - **Note:** IE8 and below exhibit some quirks with named function expressions.  See [http://kangax.github.io/nfe/](http://kangax.github.io/nfe/) for more info.
 
-  - If your file exports a single class, your filename should be exactly the name of the class.
+  - Acronyms and initialisms should keep the casing of the variable / object you're naming.
+
+    > Why? Acronyms in all capitals are harder to read.
+
     ```javascript
-    // file contents
-    class CheckBox {
+    // bad
+    import SMSContainer from './containers/SMSContainer';
+
+    // bad
+    var HttpRequests = [
       // ...
-    }
-    module.exports = CheckBox;
-
-    // in some other file
-    // bad
-    var CheckBox = require('./checkBox');
+    ];
 
     // bad
-    var CheckBox = require('./check_box');
+    var HTTPRequests = [
+      // ...
+    ];
+
+    // Good
+    import smsContainer from './containers/smsContainer';
+
+    // Good (if it's a class)
+    import ContainerFactory from './containers/ContainerFactory';
 
     // good
-    var CheckBox = require('./CheckBox');
+    var httpRequests = [
+      // ...
+    ];
     ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -1269,7 +1824,8 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
 ## Accessors
 
   - Accessor functions for properties are not required.
-  - If you do make accessor functions use getVal() and setVal('hello').
+
+  - If you do make accessor functions use `getVal()` and `setVal('hello')`.
 
     ```javascript
     // bad
@@ -1285,7 +1841,7 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     dragon.setAge(25);
     ```
 
-  - If the property is a boolean, use isVal() or hasVal().
+  - If the property is a boolean, use `isVal()` or `hasVal()`.
 
     ```javascript
     // bad
@@ -1299,7 +1855,7 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     }
     ```
 
-  - It's okay to create get() and set() functions, but be consistent.
+  - It's okay to create `get()` and `set()` functions, but be consistent.
 
     ```javascript
     function Jedi(options) {
@@ -1384,8 +1940,7 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
       .setHeight(20);
     ```
 
-
-  - It's okay to write a custom toString() method, just make sure it works successfully and causes no side effects.
+  - It's okay to write a custom `toString()` method, just make sure it works successfully and causes no side effects.
 
     ```javascript
     function Jedi(options) {
@@ -1439,8 +1994,11 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
 ## Modules
 
   - The module should start with a `!`. This ensures that if a malformed module forgets to include a final semicolon there aren't errors in production when the scripts get concatenated. [Explanation](https://github.com/airbnb/javascript/issues/44#issuecomment-13063933)
+
   - The file should be named with camelCase, live in a folder with the same name, and match the name of the single export.
+
   - Add a method called `noConflict()` that sets the exported module to the previous version and returns this one.
+
   - Always declare `'use strict';` at the top of the module.
 
     ```javascript
@@ -1507,6 +2065,7 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     ```
 
   - For DOM queries use Cascading `$('.sidebar ul')` or parent > child `$('.sidebar > ul')`. [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
+
   - Use `find` with scoped jQuery object queries.
 
     ```javascript
@@ -1546,6 +2105,13 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
     }
     ```
 
+  - **No, but seriously**:
+    - Whichever testing framework you use, you should be writing tests!
+    - Strive to write many small pure functions, and minimize where mutations occur.
+    - Be cautious about stubs and mocks - they can make your tests more brittle.
+    - 100% test coverage is a good goal to strive for, even if it's not always practical to reach it.
+    - Whenever you fix a bug, _write a regression test_. A bug fixed without a regression test is almost certainly going to break again in the future.
+
 **[⬆ back to top](#table-of-contents)**
 
 
@@ -1573,8 +2139,7 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
 **Tools**
 
   - Code Style Linters
-    + [JSHint](http://www.jshint.com/) - [Airbnb Style .jshintrc](https://github.com/airbnb/javascript/blob/master/linters/.jshintrc)
-    + [JSCS](https://github.com/jscs-dev/node-jscs) - [Airbnb Style Preset](https://github.com/jscs-dev/node-jscs/blob/master/presets/airbnb.json)
+    + [ESlint](http://eslint.org/) - [Making Sense Style .eslintrc](.eslintrc)
 
 **Other Style Guides**
 
@@ -1638,90 +2203,11 @@ Forked from the excellent [Airbnb JavaScript Style Guide](https://github.com/air
 
 **[⬆ back to top](#table-of-contents)**
 
-## In the Wild
-
-  This is a list of organizations that are using this style guide. Send us a pull request or open an issue and we'll add you to the list.
-
-  - **Aan Zee**: [AanZee/javascript](https://github.com/AanZee/javascript)
-  - **Adult Swim**: [adult-swim/javascript](https://github.com/adult-swim/javascript)
-  - **Airbnb**: [airbnb/javascript](https://github.com/airbnb/javascript)
-  - **Apartmint**: [apartmint/javascript](https://github.com/apartmint/javascript)
-  - **Avalara**: [avalara/javascript](https://github.com/avalara/javascript)
-  - **Billabong**: [billabong/javascript](https://github.com/billabong/javascript)
-  - **Compass Learning**: [compasslearning/javascript-style-guide](https://github.com/compasslearning/javascript-style-guide)
-  - **DailyMotion**: [dailymotion/javascript](https://github.com/dailymotion/javascript)
-  - **Digitpaint** [digitpaint/javascript](https://github.com/digitpaint/javascript)
-  - **Evernote**: [evernote/javascript-style-guide](https://github.com/evernote/javascript-style-guide)
-  - **ExactTarget**: [ExactTarget/javascript](https://github.com/ExactTarget/javascript)
-  - **Flexberry**: [Flexberry/javascript-style-guide](https://github.com/Flexberry/javascript-style-guide)
-  - **Gawker Media**: [gawkermedia/javascript](https://github.com/gawkermedia/javascript)
-  - **General Electric**: [GeneralElectric/javascript](https://github.com/GeneralElectric/javascript)
-  - **GoodData**: [gooddata/gdc-js-style](https://github.com/gooddata/gdc-js-style)
-  - **Grooveshark**: [grooveshark/javascript](https://github.com/grooveshark/javascript)
-  - **How About We**: [howaboutwe/javascript](https://github.com/howaboutwe/javascript)
-  - **InfoJobs**: [InfoJobs/JavaScript-Style-Guide](https://github.com/InfoJobs/JavaScript-Style-Guide)
-  - **Intent Media**: [intentmedia/javascript](https://github.com/intentmedia/javascript)
-  - **Jam3**: [Jam3/Javascript-Code-Conventions](https://github.com/Jam3/Javascript-Code-Conventions)
-  - **JSSolutions**: [JSSolutions/javascript](https://github.com/JSSolutions/javascript)
-  - **Kinetica Solutions**: [kinetica/javascript](https://github.com/kinetica/javascript)
-  - **Mighty Spring**: [mightyspring/javascript](https://github.com/mightyspring/javascript)
-  - **MinnPost**: [MinnPost/javascript](https://github.com/MinnPost/javascript)
-  - **ModCloth**: [modcloth/javascript](https://github.com/modcloth/javascript)
-  - **Money Advice Service**: [moneyadviceservice/javascript](https://github.com/moneyadviceservice/javascript)
-  - **Muber**: [muber/javascript](https://github.com/muber/javascript)
-  - **National Geographic**: [natgeo/javascript](https://github.com/natgeo/javascript)
-  - **National Park Service**: [nationalparkservice/javascript](https://github.com/nationalparkservice/javascript)
-  - **Nimbl3**: [nimbl3/javascript](https://github.com/nimbl3/javascript)
-  - **Nordic Venture Family**: [CodeDistillery/javascript](https://github.com/CodeDistillery/javascript)
-  - **Orion Health**: [orionhealth/javascript](https://github.com/orionhealth/javascript)
-  - **Peerby**: [Peerby/javascript](https://github.com/Peerby/javascript)
-  - **Razorfish**: [razorfish/javascript-style-guide](https://github.com/razorfish/javascript-style-guide)
-  - **reddit**: [reddit/styleguide/javascript](https://github.com/reddit/styleguide/tree/master/javascript)
-  - **REI**: [reidev/js-style-guide](https://github.com/reidev/js-style-guide)
-  - **Ripple**: [ripple/javascript-style-guide](https://github.com/ripple/javascript-style-guide)
-  - **SeekingAlpha**: [seekingalpha/javascript-style-guide](https://github.com/seekingalpha/javascript-style-guide)
-  - **Shutterfly**: [shutterfly/javascript](https://github.com/shutterfly/javascript)
-  - **StudentSphere**: [studentsphere/javascript](https://github.com/studentsphere/javascript)
-  - **Super**: [SuperJobs/javascript](https://github.com/SuperJobs/javascript)
-  - **SysGarage**: [sysgarage/javascript-style-guide](https://github.com/sysgarage/javascript-style-guide)
-  - **Target**: [target/javascript](https://github.com/target/javascript)
-  - **TheLadders**: [TheLadders/javascript](https://github.com/TheLadders/javascript)
-  - **T4R Technology**: [T4R-Technology/javascript](https://github.com/T4R-Technology/javascript)
-  - **VoxFeed**: [VoxFeed/javascript-style-guide](https://github.com/VoxFeed/javascript-style-guide)
-  - **Weggo**: [Weggo/javascript](https://github.com/Weggo/javascript)
-  - **Zillow**: [zillow/javascript](https://github.com/zillow/javascript)
-  - **ZocDoc**: [ZocDoc/javascript](https://github.com/ZocDoc/javascript)
-
-## Translation
-
-  This style guide is also available in other languages:
-
-  - ![br](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Brazil.png) **Brazilian Portuguese**: [armoucar/javascript-style-guide](https://github.com/armoucar/javascript-style-guide)
-  - ![bg](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Bulgaria.png) **Bulgarian**: [borislavvv/javascript](https://github.com/borislavvv/javascript)
-  - ![ca](https://raw.githubusercontent.com/fpmweb/javascript-style-guide/master/img/catala.png) **Catalan**: [fpmweb/javascript-style-guide](https://github.com/fpmweb/javascript-style-guide)
-  - ![tw](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Taiwan.png) **Chinese(Traditional)**: [jigsawye/javascript](https://github.com/jigsawye/javascript)
-  - ![cn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/China.png) **Chinese(Simplified)**: [sivan/javascript-style-guide](https://github.com/sivan/javascript-style-guide)
-  - ![fr](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/France.png) **French**: [nmussy/javascript-style-guide](https://github.com/nmussy/javascript-style-guide)
-  - ![de](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Germany.png) **German**: [timofurrer/javascript-style-guide](https://github.com/timofurrer/javascript-style-guide)
-  - ![it](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Italy.png) **Italian**: [sinkswim/javascript-style-guide](https://github.com/sinkswim/javascript-style-guide)
-  - ![jp](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Japan.png) **Japanese**: [mitsuruog/javacript-style-guide](https://github.com/mitsuruog/javacript-style-guide)
-  - ![kr](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/South-Korea.png) **Korean**: [tipjs/javascript-style-guide](https://github.com/tipjs/javascript-style-guide)
-  - ![pl](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Poland.png) **Polish**: [mjurczyk/javascript](https://github.com/mjurczyk/javascript)
-  - ![ru](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Russia.png) **Russian**: [uprock/javascript](https://github.com/uprock/javascript)
-  - ![es](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Spain.png) **Spanish**: [paolocarrasco/javascript-style-guide](https://github.com/paolocarrasco/javascript-style-guide)
-  - ![th](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Thailand.png) **Thai**: [lvarayut/javascript-style-guide](https://github.com/lvarayut/javascript-style-guide)
-
-
-## Contributors
-
-  - [View Contributors](https://github.com/airbnb/javascript/graphs/contributors)
-
-
 ## License
 
 (The MIT License)
 
-Copyright (c) 2016 MakingSense
+Copyright (c) 2016 AirBnb
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
