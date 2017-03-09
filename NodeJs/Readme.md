@@ -17,7 +17,7 @@ according to your preferences.
 
 ![Creative Commons License](http://i.creativecommons.org/l/by-sa/3.0/88x31.png)
 
-## 2 Spaces for indention
+## 2 Spaces for indentation
 
 Use 2 spaces for indenting your code and swear an oath to never mix tabs and
 spaces - a special kind of hell is awaiting you otherwise.
@@ -172,7 +172,7 @@ ECMA standard.
 *Right:*
 
 ```js
-var SECOND = 1 * 1000;
+const SECOND = 1 * 1000;
 
 function File() {
 }
@@ -243,11 +243,17 @@ if (a == '') {
 
 [comparisonoperators]: https://developer.mozilla.org/en/JavaScript/Reference/Operators/Comparison_Operators
 
-## Use multi-line ternary operator
+## Use single-line ternary operator
 
-The ternary operator should not be used on a single line. Split it up into multiple lines instead.
+Ternaries should not be nested and generally be single line expressions.
 
 *Right:*
+
+```js
+var foo = (a === b) ? 1 : 2;
+```
+
+*Wrong:*
 
 ```js
 var foo = (a === b)
@@ -255,10 +261,46 @@ var foo = (a === b)
   : 2;
 ```
 
+Also, avoid unneeded ternary statements.
+
+*Right:*
+
+```js
+var foo = a || b;
+var bar = !!c;
+var baz = !c;
+```
+
 *Wrong:*
 
 ```js
-var foo = (a === b) ? 1 : 2;
+var foo = a ? a : b;
+var bar = c ? true : false;
+var baz = c ? false : true;
+```
+
+Avoid side effects in ternary comparisons. Prefer if statements in cases like that. Side effects written in a single line disrupt the rythym of code reading for other developers. Furthermore, if you happen to be debugging line-by-line, side effects in ternary are difficult to work with.
+
+*Right:*
+
+```js
+if (shouldBeVisible)
+  show();
+else
+  hide();
+
+a += 1;
+var isAPositive = a > 0;
+var aDoubled = a * 2;
+var myResult = isAPositive ? aDoubled : a;
+```
+
+*Wrong:*
+
+```js
+shouldBeVisible ? show() : hide();
+
+var myResult = (a += 1 > 0) ? a *= 2 : a;
 ```
 
 ## Do not extend built-in prototypes
@@ -457,13 +499,3 @@ if (isSessionValid) {
 ## Object.freeze, Object.preventExtensions, Object.seal, with, eval
 
 Crazy shit that you will probably never need. Stay away from it.
-
-## Getters and setters
-
-Do not use setters, they cause more problems for people who try to use your
-software than they can solve.
-
-Feel free to use getters that are free from [side effects][sideeffect], like
-providing a length property for a collection class.
-
-[sideeffect]: http://en.wikipedia.org/wiki/Side_effect_(computer_science)
