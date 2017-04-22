@@ -6,6 +6,7 @@ This is a _work in progress_.
 
 1. [General](#general)
 1. [Layout](#layout)
+1. [Naming](#naming)
 
 ## General
 
@@ -133,6 +134,114 @@ var element = myArray[ result] + 1; // extra space to the right of opening brack
 // Good
 var result = (4 / 2) + 6;
 var element = myArray[result];
+```
+
+## Naming
+
+### Be descriptive with your naming, avoid abbreviations and single letter names
+
+```csharp
+// Bad
+var hc = new HttpClient();
+
+// Good
+var httpClient = new HttpClient();
+```
+
+```csharp
+// Bad
+var e = "test@test.com";
+
+// Good
+var email = "test@test.com";
+```
+
+### Use *PascalCase* for namespaces, classes, enums, structs, constants, delegates, events, methods and properties
+
+```csharp
+// Bad
+public class file_reader
+{
+    // ...
+}
+
+// Good
+public class FileReader
+{
+    // ...
+}
+```
+
+```csharp
+// Bad
+public const int TIME_IN_SECONDS = 5;
+
+// Good
+public const int TimeInSeconds = 5;
+```
+
+```csharp
+// Bad
+public string secondAddress { get; set; }
+
+// Good
+public string SecondAddress { get; set; }
+```
+
+### Use *camelCase* for variables
+
+```csharp
+// Bad
+var FileReader = new FileReader();
+var file_reader = new FileReader();
+var _fileReader = new FileReader();
+
+// Good
+var fileReader = new FileReader();
+```
+
+### Use *_underscoreCase* for private instance/static fields
+
+```csharp
+// Bad
+private IUserService UserService;
+private IUserService userService;
+private IUserService user_service;
+
+// Good
+private IUserService _userService;
+```
+
+### Interface names must begin with "I"
+
+```csharp
+// Bad
+public interface LoggerInterface
+{
+    // ...
+}
+
+// Good
+public interface ILogger
+{
+    // ...
+}
+```
+
+### Include *Async* suffix on async methods
+
+```csharp
+// Bad
+public async Task<int> GetLatestPosition()
+{
+    // ...
+}
+
+// Good
+public async Task<int> GetLatestPositionAsync()
+{
+    // ...
+}
 ```
 
 ## Resources
