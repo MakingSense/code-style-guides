@@ -7,6 +7,8 @@ This is a _work in progress_.
 1. [General](#general)
 1. [Layout](#layout)
 1. [Naming](#naming)
+1. [Acknowledgments](#acknowledgments)
+1. [References](#references)
 
 ## General
 
@@ -81,6 +83,29 @@ public void SomeMethod()
 }
 ```
 
+### Don't use more than one empty line in a row
+
+```csharp
+// Bad
+public void SomeMethod()
+{
+    DoSomethingFirst();
+    DoSomethingLater();
+
+
+    DoSomethingAtTheEnd();
+}
+
+// Good
+public void SomeMethod()
+{
+    DoSomethingFirst();
+    DoSomethingLater();
+
+    DoSomethingAtTheEnd();
+}
+```
+
 ### Remove unused or redundant *using* statements (or directives)
 
 ### Use single line and lambda getters for simple methods and read-only properties
@@ -91,6 +116,41 @@ public string Name { get; private set; }
 
 // Good
 public string UppercaseName => Name.toUpperCase(); 
+```
+
+### Curly braces for multi line statements must not share line
+
+```csharp
+// Bad
+public void SomeMethod() {
+    // ...
+}
+
+// Good
+public void SomeMethod()
+{
+    // ...
+}
+```
+
+### Opening or ending curly braces must not be followed/preceded by a blank line
+
+```csharp
+// Bad
+public void SomeMethod() 
+{
+
+    DoSomethingFirst();
+    DoSomethingLater();
+
+}
+
+// Good
+public void SomeMethod()
+{
+    DoSomethingFirst();
+    DoSomethingLater();
+}
 ```
 
 ### Don't use braces for just one line
@@ -134,6 +194,16 @@ var element = myArray[ result] + 1; // extra space to the right of opening brack
 // Good
 var result = (4 / 2) + 6;
 var element = myArray[result];
+```
+
+### Use spaces around the *=* operator when assigning values
+
+```csharp
+// Bad
+var result=2;
+
+// Good
+var result = 2;
 ```
 
 ## Naming
@@ -244,8 +314,15 @@ public async Task<int> GetLatestPositionAsync()
 }
 ```
 
-## Resources
+## Acknowledgments
 
+Thank you to all who contributed to any of the styles in this document or mentioned references.
+
+## References
+
+- [StyleCop](http://stylecop.soyuz5.com/StyleCop%20Rules.html)
 - [CoreFX C# Coding Style](https://github.com/dotnet/corefx/blob/master/Documentation/coding-guidelines/coding-style.md)
 - [Framework Design Guidelines](https://msdn.microsoft.com/en-us/library/ms229042(v=vs.110).aspx)
 - [Microsoft C# Coding Conventions](https://msdn.microsoft.com/library/ff926074.aspx)
+- [Ruby Style Guide by bbatsov](https://github.com/bbatsov/ruby-style-guide)
+- [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)
