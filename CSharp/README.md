@@ -323,7 +323,7 @@ We all know testing code is not built the same way that regular code is, because
 
 ```csharp
 // Bad
-namespace MyProject.UnitTests
+namespace MyProject
 {
     [TestClass]
     public class MyService
@@ -331,7 +331,7 @@ namespace MyProject.UnitTests
 }
 
 // Good
-namespace MyProject.UnitTests
+namespace MyProject
 {
     [TestClass]
     public class MyServiceTests
