@@ -375,7 +375,7 @@ public void SaveToDatabase_ThrowsArgumentException_WhenConnectionStringIsNotPres
 
 We generally avoid using `#region` since it is a symptom of poorly designed code. However, tests classes are likely to grow if the same class handles several scenarios to be tested, or if several methods are exposed. Group them by the method being tested.
 
-Include overloaded verions of methods in the same region.
+Include overloaded versions of methods in the same region.
 
 ```csharp
 #region SaveToDatabase
