@@ -6,6 +6,7 @@ This is a _work in progress_.
 
 1. [General](#general)
 1. [Layout](#layout)
+1. [Ordering](#ordering)
 1. [Naming](#naming)
 1. [Testing Code](#testing-code)
 1. [Acknowledgments](#acknowledgments)
@@ -205,6 +206,79 @@ var result=2;
 
 // Good
 var result = 2;
+```
+
+## Ordering
+
+### Within a class, struct, or interface, elements should be ordered
+
+See [SA1201](http://stylecop.soyuz5.com/SA1201.html) for more information.
+
+1. Constants
+1. Fields
+1. Constructors
+1. Delegates
+1. Events
+1. Properties
+1. Methods
+1. Finalizers (Destructors)
+
+### Elements should be ordered by access
+
+See [SA1202](http://stylecop.soyuz5.com/SA1202.html) for more information.
+
+1. `public`
+1. `internal`
+1. `protected internal`
+1. `protected`
+1. `private`
+
+### It is recommended to follow certain order when using declaration keywords
+
+See [SA1206](http://stylecop.soyuz5.com/SA1206.html) for more information.
+
+1. Access modifiers
+1. `static`
+1. All other keywords
+
+```csharp
+// Bad
+override public int Area()
+{
+    // ...
+}
+
+// Good
+public override int Area()
+{
+    // ...
+}
+```
+
+```csharp
+// Bad
+static public void Drive() { }
+
+// Good
+public static void Drive() { }
+```
+
+### It is recommended to order *using* directives alphabetically
+
+See [SA1210](http://stylecop.soyuz5.com/SA1210.html) for more information.
+
+```csharp
+// Bad
+using System;
+using Newtonsoft.Json;
+using System.Linq;
+using System.Collections.Generic;
+
+// Good
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 ```
 
 ## Naming
