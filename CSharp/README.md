@@ -7,6 +7,7 @@ This is a _work in progress_.
 1. [General](#general)
 1. [Layout](#layout)
 1. [Naming](#naming)
+1. [Testing Code](#testing-code)
 1. [Acknowledgments](#acknowledgments)
 1. [References](#references)
 
@@ -312,6 +313,84 @@ public async Task<int> GetLatestPositionAsync()
 {
     // ...
 }
+```
+
+## Testing Code
+
+We all know testing code is not built the same way that regular code is, because its purpose is different. This is why we have special guidelines for this type of code.
+
+### Test Class naming: {TargetTestClass}Tests
+
+```csharp
+// Bad
+namespace MyProject
+{
+    [TestClass]
+    public class MyService
+    { }
+}
+
+// Good
+namespace MyProject
+{
+    [TestClass]
+    public class MyServiceTests
+    { }
+}
+```
+
+### Test Class Location: keep a correspondence with the code being tested
+
+Use the same folder structure / namespace structure as the code that's being tested. This makes it easier to find test classes for a particular class and classes being tested by a particular test class.
+
+### Method naming: {TargetTestMethod}_{Expectation}[_When{Condition}]
+
+The name needs to express:
+
+- **What** is being tested
+- **What** should happen.
+- Under **which** conditions.
+
+What is being tested will usually be a particular method. (These are unit tests, after all.) For integration tests, there is more freedom in choosing this portion, but should still be a good name indicating the scenario being tested.
+
+What should happen should be concise and to the point. Avoid _should_ or _must_ or expressions of rule/desire. The test itself is that validation, there's no need to specify it.
+
+The conditions can be avoided if "normal" conditions are easy to assume and they're the one being tested. For example, a "must work under regular conditions" test says nothing. A good name would be "SaveToDatabase_PersistsChanges"
+
+```csharp
+// Bad: Uses filler words
+public void SaveToDatabase_ShouldPersistChanges() { }
+
+// Bad: does not correctly indicate responsibility
+public void SaveToDatabase_Works() { }
+
+// Good
+public void SaveToDatabase_PersistsChanges() { }
+
+// Also good
+public void SaveToDatabase_ThrowsArgumentException_WhenConnectionStringIsNotPresent() { }
+```
+
+### Group tests by test target
+
+We generally avoid using `#region` since it is a symptom of poorly designed code. However, tests classes are likely to grow if the same class handles several scenarios to be tested, or if several methods are exposed. Group them by the method being tested.
+
+Include overloaded versions of methods in the same region.
+
+```csharp
+#region SaveToDatabase
+public void SaveToDatabase_PersistsChanges() { }
+
+public void SaveToDatabase_ThrowsArgumentException_WhenConnectionStringIsNotPresent() { }
+#endregion
+
+#region RetrieveFromDatabase
+public void RetrieveFromDatabase_RetrievesClientById() { }
+
+public void RetrieveFromDatabase_RetrievesClientsByName() { }
+
+public void RetrieveFromDatabase_ThrowsArgumentOutOfRangeException_WhenIdIsEmptyGuid() { }
+#endregion
 ```
 
 ## Acknowledgments
