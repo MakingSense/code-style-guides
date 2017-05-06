@@ -4,6 +4,7 @@ This is a _work in progress_.
 
 ## Table of Contents
 
+1. [Tooling](#tooling)
 1. [General](#general)
 1. [Layout](#layout)
 1. [Ordering](#ordering)
@@ -11,6 +12,12 @@ This is a _work in progress_.
 1. [Testing Code](#testing-code)
 1. [Acknowledgments](#acknowledgments)
 1. [References](#references)
+
+## Tooling
+
+We include [a ruleset file](CSharpStyleguide.ruleset) for [StyleCop](http://stylecop.soyuz5.com/StyleCop%20Rules.html) where we try to keep the styles matching. For this to work you need to add the [NuGet package](https://www.nuget.org/packages/StyleCop.Analyzers/1.0.0) and manually add the ruleset file to each project.
+
+`<CodeAnalysisRuleSet>..\CSharpStyleguide.ruleset</CodeAnalysisRuleSet>`
 
 ## General
 
@@ -31,6 +38,8 @@ IUserService userService = new UserService();
 
 ### Don't use explicit *this* reference
 
+[SA1101](http://stylecop.soyuz5.com/SA1101.html)
+
 It is redundant and does not add for readability. For more information read [this SO post](http://stackoverflow.com/questions/5885249/to-use-or-not-to-use-the-this-qualifier-in-c-sharp).
 
 ```csharp
@@ -42,6 +51,8 @@ ValidateParameters();
 ```
 
 ### Use language built-in alias instead of class names
+
+[SA1121](http://stylecop.soyuz5.com/SA1121.html)
 
 ```csharp
 // Bad
@@ -87,6 +98,8 @@ public void SomeMethod()
 
 ### Don't use more than one empty line in a row
 
+[SA1507](http://stylecop.soyuz5.com/SA1507.html)
+
 ```csharp
 // Bad
 public void SomeMethod()
@@ -122,6 +135,8 @@ public string UppercaseName => Name.toUpperCase();
 
 ### Curly braces for multi line statements must not share line
 
+[SA1500](http://stylecop.soyuz5.com/SA1500.html)
+
 ```csharp
 // Bad
 public void SomeMethod() {
@@ -136,6 +151,9 @@ public void SomeMethod()
 ```
 
 ### Opening or ending curly braces must not be followed/preceded by a blank line
+
+[SA1508](http://stylecop.soyuz5.com/SA1508.html)
+[SA1509](http://stylecop.soyuz5.com/SA1509.html)
 
 ```csharp
 // Bad
@@ -156,6 +174,8 @@ public void SomeMethod()
 ```
 
 ### Don't use braces for just one line
+
+[SA1503](http://stylecop.soyuz5.com/SA1503.html)
 
 ```csharp
 // Bad
@@ -212,7 +232,7 @@ var result = 2;
 
 ### Within a class, struct, or interface, elements should be ordered
 
-See [SA1201](http://stylecop.soyuz5.com/SA1201.html) for more information.
+[SA1201](http://stylecop.soyuz5.com/SA1201.html)
 
 1. Constants
 1. Fields
@@ -225,7 +245,7 @@ See [SA1201](http://stylecop.soyuz5.com/SA1201.html) for more information.
 
 ### Elements should be ordered by access
 
-See [SA1202](http://stylecop.soyuz5.com/SA1202.html) for more information.
+[SA1202](http://stylecop.soyuz5.com/SA1202.html)
 
 1. `public`
 1. `internal`
@@ -235,7 +255,7 @@ See [SA1202](http://stylecop.soyuz5.com/SA1202.html) for more information.
 
 ### It is recommended to follow certain order when using declaration keywords
 
-See [SA1206](http://stylecop.soyuz5.com/SA1206.html) for more information.
+[SA1206](http://stylecop.soyuz5.com/SA1206.html)
 
 1. Access modifiers
 1. `static`
@@ -265,7 +285,7 @@ public static void Drive() { }
 
 ### It is recommended to order *using* directives alphabetically
 
-See [SA1210](http://stylecop.soyuz5.com/SA1210.html) for more information.
+[SA1210](http://stylecop.soyuz5.com/SA1210.html)
 
 ```csharp
 // Bad
@@ -302,6 +322,9 @@ var email = "test@test.com";
 ```
 
 ### Use *PascalCase* for namespaces, classes, enums, structs, constants, delegates, events, methods and properties
+
+[SA1300](http://stylecop.soyuz5.com/SA1300.html)
+[SA1303](http://stylecop.soyuz5.com/SA1303.html)
 
 ```csharp
 // Bad
@@ -347,6 +370,8 @@ var fileReader = new FileReader();
 
 ### Use *_underscoreCase* for private instance/static fields
 
+[SA1309](http://stylecop.soyuz5.com/SA1309.html)
+
 ```csharp
 // Bad
 private IUserService UserService;
@@ -358,6 +383,8 @@ private IUserService _userService;
 ```
 
 ### Interface names must begin with "I"
+
+[SA1302](http://stylecop.soyuz5.com/SA1302.html)
 
 ```csharp
 // Bad
