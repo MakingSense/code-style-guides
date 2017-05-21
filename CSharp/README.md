@@ -7,6 +7,7 @@ This is a _work in progress_.
 1. [Tooling](#tooling)
 1. [General](#general)
 1. [Layout](#layout)
+1. [Spacing](#spacing)
 1. [Ordering](#ordering)
 1. [Naming](#naming)
 1. [Testing Code](#testing-code)
@@ -189,43 +190,121 @@ if (payment == null)
     return "A payment is required.";
 ```
 
-### Use spaces in array/object initializers
+## Spacing
+
+### Commas must be spaced correctly
+
+[SA1001](http://stylecop.soyuz5.com/SA1001.html)
+
+A comma should be followed by a single space and never be preceded by any whitespace.
 
 ```csharp
 // Bad
-var names = new string[] {"Marie","John","Paul"};
+var result = Calculate(3 , 5);
+var result = Calculate(3,5);
 
+// Good
+var result = Calculate(3, 5);
+```
+
+### Symbols must be spaced correctly
+
+[SA1003](http://stylecop.soyuz5.com/SA1003.html)
+
+An operator symbol must be surrounded by a single space on either side.
+
+```csharp
 // Bad
-var names = new string[] {"Marie", "John", "Paul"};
+var result = 5+3;
+var result = 5 +3;
+var result = 5+ 3;
+
+// Good
+var result = 5 + 3;
+```
+
+Except for unary operators:
+
+```csharp
+// Bad
+var result = ! toggle;
+
+// Good
+var result = !toggle;
+```
+
+### Opening parenthesis should not be followed by a space
+
+[SA1008](http://stylecop.soyuz5.com/SA1008.html)
+
+```csharp
+// Bad
+var result = Calculate( 3, 5);
+
+// Good
+var result = Calculate(3, 5);
+```
+
+### Closing parenthesis should not be preceded by a space
+
+[SA1009](http://stylecop.soyuz5.com/SA1009.html)
+
+```csharp
+// Bad
+var result = Calculate(3, 5 );
+
+// Good
+var result = Calculate(3, 5);
+```
+
+### Opening square brackets should not be preceded or followed by a space
+
+[SA1010](http://stylecop.soyuz5.com/SA1010.html)
+
+```csharp
+// Bad
+var element = myArray [index];
+var element = myArray[ index];
+
+// Good
+var element = myArray[index];
+```
+
+### Closing square brackets should not be preceded or followed by a space
+
+[SA1011](http://stylecop.soyuz5.com/SA1011.html)
+
+```csharp
+// Bad
+var element = myArray[index ];
+var element = myArray[index] ;
+
+// Good
+var element = myArray[index];
+```
+
+### Opening curly brackets should be preceded and followed by a space
+
+[SA1012](http://stylecop.soyuz5.com/SA1012.html)
+
+```csharp
+// Bad
+var names = new string[] {"Marie", "John", "Paul" };
 
 // Good
 var names = new string[] { "Marie", "John", "Paul" };
 ```
 
-### Use spaces between operators but avoid spaces *after opening* and *before closing* parenthesis/brackets
+### Closing curly brackets should be preceded and followed by a space
+
+[SA1013](http://stylecop.soyuz5.com/SA1013.html)
 
 ```csharp
 // Bad
-var result =(4 / 2) + 6; // missing space to the left of opening parenthesis
-var result = ( 4 / 2) + 6; // extra space to the right of opening parenthesis
-var result = (4 / 2 ) + 6; // extra space to the left of closing parenthesis
-var result = (4 / 2)+ 6; // missing space to the right of closing parenthesis
-var element = myArray [result] + 1; // extra space to the left of opening bracket
-var element = myArray[ result] + 1; // extra space to the right of opening bracket
+var names = new string[] { "Marie", "John", "Paul"};
 
 // Good
-var result = (4 / 2) + 6;
-var element = myArray[result];
-```
-
-### Use spaces around the *=* operator when assigning values
-
-```csharp
-// Bad
-var result=2;
-
-// Good
-var result = 2;
+var names = new string[] { "Marie", "John", "Paul" };
 ```
 
 ## Ordering
