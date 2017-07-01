@@ -1,6 +1,6 @@
 # C# Style Guide
 
-This is a _work in progress_.
+Remember that at the end of the day these are only _recommendations_.
 
 ## Table of Contents
 
