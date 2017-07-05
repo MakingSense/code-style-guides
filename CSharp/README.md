@@ -194,20 +194,20 @@ public void SomeMethod()
 }
 ```
 
-### Don't use braces for just one line
+### Always use braces even for just one line
 
 [SA1503](http://stylecop.soyuz5.com/SA1503.html)
 
 ```csharp
 // Bad
 if (payment == null)
-{
     return "A payment is required.";
-}
 
 // Good
 if (payment == null)
+{
     return "A payment is required.";
+}
 ```
 
 ## Spacing
