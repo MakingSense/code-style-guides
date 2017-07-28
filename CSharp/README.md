@@ -16,6 +16,8 @@ Remember that at the end of the day these are only _recommendations_.
 
 ## Tooling
 
+_Tool configuration_ links only provides the reference to the style for a given tool which doesn't mean that this style guide uses the same recommendation by the tool.
+
 ### StyleCop
 
 We include [a ruleset file](CSharpStyleguide.ruleset) for [StyleCop](http://stylecop.soyuz5.com/StyleCop%20Rules.html) where we try to keep the styles matching.
@@ -36,7 +38,8 @@ If you are used to `.editorconfig` files then you can [grab the one we include h
 
 ### Use var instead of explicit types
 
-[.editorconfig](https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#var)
+Tool configuration:
+[EditorConfig](https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#var)
 
 Exceptions are allowed. For more information read [this fantastic post from Eric Lippert](https://blogs.msdn.microsoft.com/ericlippert/2011/04/20/uses-and-misuses-of-implicit-typing/).
 
@@ -53,8 +56,9 @@ IUserService userService = new UserService();
 
 ### Don't use explicit *this* reference
 
+Tool configuration:
 [SA1101](http://stylecop.soyuz5.com/SA1101.html)
-[.editorconfig](https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#this_and_me)
+[EditorConfig](https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#this_and_me)
 
 It is redundant and does not add for readability. For more information read [this SO post](http://stackoverflow.com/questions/5885249/to-use-or-not-to-use-the-this-qualifier-in-c-sharp).
 
@@ -68,8 +72,9 @@ ValidateParameters();
 
 ### Use language built-in alias instead of class names
 
+Tool configuration:
 [SA1121](http://stylecop.soyuz5.com/SA1121.html)
-[.editorconfig](https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#language_keywords)
+[EditorConfig](https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#language_keywords)
 
 ```csharp
 // Bad
@@ -95,7 +100,8 @@ var message = $"My name is {person.FirstName} {person.LastName}.";
 
 ### Use *four spaces* per indentation level
 
-[.editorconfig](http://editorconfig.org/#file-format-details)
+Tool configuration:
+[EditorConfig](http://editorconfig.org/#file-format-details)
 
 You can enable the "View White Space" option and use CTRL+R/CTRL+W keyboard shortcuts.
 
@@ -117,6 +123,7 @@ public void SomeMethod()
 
 ### Don't use more than one empty line in a row
 
+Tool configuration:
 [SA1507](http://stylecop.soyuz5.com/SA1507.html)
 
 ```csharp
@@ -144,7 +151,8 @@ public void SomeMethod()
 
 ### Use single line and lambda getters for simple methods and read-only properties
 
-[.editorconfig](https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#expression_bodied_members_properties)
+Tool configuration:
+[EditorConfig](https://docs.microsoft.com/en-us/visualstudio/ide/editorconfig-code-style-settings-reference#expression_bodied_members_properties)
 
 ```csharp
 // Good
@@ -156,6 +164,7 @@ public string UppercaseName => Name.toUpperCase();
 
 ### Curly braces for multi line statements must not share line
 
+Tool configuration:
 [SA1500](http://stylecop.soyuz5.com/SA1500.html)
 
 ```csharp
@@ -173,6 +182,7 @@ public void SomeMethod()
 
 ### Opening or ending curly braces must not be followed/preceded by a blank line
 
+Tool configuration:
 [SA1508](http://stylecop.soyuz5.com/SA1508.html)
 [SA1509](http://stylecop.soyuz5.com/SA1509.html)
 
@@ -196,6 +206,7 @@ public void SomeMethod()
 
 ### Don't use braces for just one line
 
+Tool configuration:
 [SA1503](http://stylecop.soyuz5.com/SA1503.html)
 
 ```csharp
@@ -214,6 +225,7 @@ if (payment == null)
 
 ### Commas must be spaced correctly
 
+Tool configuration:
 [SA1001](http://stylecop.soyuz5.com/SA1001.html)
 
 A comma should be followed by a single space and never be preceded by any whitespace.
@@ -229,6 +241,7 @@ var result = Calculate(3, 5);
 
 ### Symbols must be spaced correctly
 
+Tool configuration:
 [SA1003](http://stylecop.soyuz5.com/SA1003.html)
 
 An operator symbol must be surrounded by a single space on either side.
@@ -255,6 +268,7 @@ var result = !toggle;
 
 ### Opening parenthesis should not be followed by a space
 
+Tool configuration:
 [SA1008](http://stylecop.soyuz5.com/SA1008.html)
 
 ```csharp
@@ -267,6 +281,7 @@ var result = Calculate(3, 5);
 
 ### Closing parenthesis should not be preceded by a space
 
+Tool configuration:
 [SA1009](http://stylecop.soyuz5.com/SA1009.html)
 
 ```csharp
@@ -279,6 +294,7 @@ var result = Calculate(3, 5);
 
 ### Opening square brackets should not be preceded or followed by a space
 
+Tool configuration:
 [SA1010](http://stylecop.soyuz5.com/SA1010.html)
 
 ```csharp
@@ -292,6 +308,7 @@ var element = myArray[index];
 
 ### Closing square brackets should not be preceded or followed by a space
 
+Tool configuration:
 [SA1011](http://stylecop.soyuz5.com/SA1011.html)
 
 ```csharp
@@ -305,6 +322,7 @@ var element = myArray[index];
 
 ### Opening curly brackets should be preceded and followed by a space
 
+Tool configuration:
 [SA1012](http://stylecop.soyuz5.com/SA1012.html)
 
 ```csharp
@@ -317,6 +335,7 @@ var names = new string[] { "Marie", "John", "Paul" };
 
 ### Closing curly brackets should be preceded and followed by a space
 
+Tool configuration:
 [SA1013](http://stylecop.soyuz5.com/SA1013.html)
 
 ```csharp
@@ -331,6 +350,7 @@ var names = new string[] { "Marie", "John", "Paul" };
 
 ### Within a class, struct, or interface, elements should be ordered
 
+Tool configuration:
 [SA1201](http://stylecop.soyuz5.com/SA1201.html)
 
 1. Constants
@@ -344,6 +364,7 @@ var names = new string[] { "Marie", "John", "Paul" };
 
 ### Elements should be ordered by access
 
+Tool configuration:
 [SA1202](http://stylecop.soyuz5.com/SA1202.html)
 
 1. `public`
@@ -354,6 +375,7 @@ var names = new string[] { "Marie", "John", "Paul" };
 
 ### It is recommended to follow certain order when using declaration keywords
 
+Tool configuration:
 [SA1206](http://stylecop.soyuz5.com/SA1206.html)
 
 1. Access modifiers
@@ -384,6 +406,7 @@ public static void Drive() { }
 
 ### It is recommended to order *using* directives alphabetically
 
+Tool configuration:
 [SA1210](http://stylecop.soyuz5.com/SA1210.html)
 
 ```csharp
@@ -422,6 +445,7 @@ var email = "test@test.com";
 
 ### Use *PascalCase* for namespaces, classes, enums, structs, constants, delegates, events, methods and properties
 
+Tool configuration:
 [SA1300](http://stylecop.soyuz5.com/SA1300.html)
 [SA1303](http://stylecop.soyuz5.com/SA1303.html)
 
@@ -469,6 +493,7 @@ var fileReader = new FileReader();
 
 ### Use *_underscoreCase* for private instance/static fields
 
+Tool configuration:
 [SA1309](http://stylecop.soyuz5.com/SA1309.html)
 
 ```csharp
@@ -483,6 +508,7 @@ private IUserService _userService;
 
 ### Interface names must begin with "I"
 
+Tool configuration:
 [SA1302](http://stylecop.soyuz5.com/SA1302.html)
 
 ```csharp
