@@ -9,6 +9,7 @@
 
 ### React Advanced
 * [Build Virtual Reality Experiences Using React VR](https://egghead.io/courses/build-virtual-reality-experiences-using-react-vr)
+* [Advanced React](https://www.pluralsight.com/courses/reactjs-advanced): Take a deep dive into full-stack JavaScript with React.js and learn advanced concepts like the context API, HOCs, external state, performance optimization, asynchronous APIs, testing, deployment, and more.
 
 
 ### Redux
