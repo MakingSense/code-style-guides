@@ -9,7 +9,10 @@
 * [React: Getting Started and Concepts](https://scotch.io/tutorials/learning-react-getting-started-and-concepts)
 * [React.js Tutorial and Guide to the Gotchas](https://zapier.com/engineering/react-js-tutorial-guide-gotchas/)
 * [Build with React](http://buildwithreact.com/#articles)
+
+### React Server Side Rendering
 * [Server-side React rendering](https://css-tricks.com/server-side-react-rendering/)
+* [Client-side vs. server-side rendering: why it’s not all black and white](https://medium.freecodecamp.org/what-exactly-is-client-side-rendering-and-hows-it-different-from-server-side-rendering-bd5c786b340d)
 
 ### React Components
 * [React components lifecycle](http://javascript.tutorialhorizon.com/2014/09/13/execution-sequence-of-a-react-components-lifecycle-methods/)
