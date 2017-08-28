@@ -58,6 +58,7 @@
 | SLIDER     | [react-range-slider](https://github.com/jpuri/react-range-slider) |  |  | MIT license | 	http://jpuri.github.io/react-range-slider/ |
 | GAUGE / SPEEDOMETER     | [react-gauge](https://github.com/jpuri/react-range-slider) |  |  | | https://github.com/michigan-com/react-gauge |
 | GAUGE / SPEEDOMETER     | [react-gauge-speedometer](https://github.com/Entali/react-gauge-speedometer) |  |  | | http://entali.github.io/react-gauge-speedometer/ |
+| GAUGE / LIQUID     | [react-liquid-gauge](https://github.com/trendmicro-frontend/react-liquid-gauge) |  |  | MIT license  | hhttps://trendmicro-frontend.github.io/react-liquid-gauge/ |
 
 ### React Books
 * [React in depth](https://www.gitbook.com/book/developmentarc/react-indepth/details)
