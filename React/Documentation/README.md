@@ -20,6 +20,16 @@
 * [Handling Events in React](https://appendto.com/2017/01/react-events-101/)
 * [Everything About Events](https://reactarmory.com/guides/learn-react-by-itself/inputs-and-events)
 * [Normalize Events with Reacts Synthetic Event System](https://egghead.io/lessons/react-react-synthetic-event-system)
+* [Events Handling](http://www.react.express/event_handling)
+
+### React Forms
+* [React Docs: Forms](https://facebook.github.io/react/docs/forms.html)
+* [React "controlled" vs "uncontrolled" inputs](https://gist.github.com/markerikson/d71cfc81687f11609d2559e8daee10cc)
+* [React Form Components](http://donavon.js.org/react-forms/)
+* [ReactJS and controlled forms](http://leftdevel.com/blog/reactjs-controlled-forms/)
+* [React Forms: Using Refs](https://css-tricks.com/react-forms-using-refs/)
+* [Forms in React and Redux](http://x-team.com/2016/02/tutorial-forms-in-react-and-redux/)
+* [Making dynamic form inputs with React](https://goshakkk.name/array-form-inputs/)
 
 ### React Native
 * [React Native: Bringing modern web techniques to mobile](https://code.facebook.com/posts/1014532261909640/react-native-bringing-modern-web-techniques-to-mobile/) 
