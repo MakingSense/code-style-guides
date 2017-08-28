@@ -1,31 +1,32 @@
-React Official Documentation
-Official React documentation: https://facebook.github.io/react/
-React Github repository: https://github.com/facebook/react/tree/master/docs
-Original FB talk: https://www.youtube.com/watch?v=nYkdrAPrdcw
-React DevTools: https://github.com/facebook/react-devtools
-React Community GitHub
+### React Official Documentation
+* Official React documentation: https://facebook.github.io/react/
+* React Github repository: https://github.com/facebook/react/tree/master/docs
+* Original FB talk: https://www.youtube.com/watch?v=nYkdrAPrdcw
+* React DevTools: https://github.com/facebook/react-devtools
+* React Community GitHub
 
-React Components
-React components lifecycle
-React elements vs components
-React Components, Elements, and Instances
+### React Components
+* [React components lifecycle](http://javascript.tutorialhorizon.com/2014/09/13/execution-sequence-of-a-react-components-lifecycle-methods/)
+* [React elements vs components](https://tylermcginnis.com/react-elements-vs-react-components/)
+* [React Components, Elements, and Instances](https://facebook.github.io/react/blog/2015/12/18/react-components-elements-and-instances.html)
 
-React Events
-Events in React
+### React Events
+* [Events in React](https://docs.google.com/a/makingsense.com/presentation/d/1wAmH5RrOTcpG3P8YcjO29LdrgigadE3gUrt2nqFo03U/edit?usp=sharing)
 
-React Native
-React Native: Bringing modern web techniques to mobile 
-React native official documentation
-Create-react-native-app
+### React Native
+* [React Native: Bringing modern web techniques to mobile](https://code.facebook.com/posts/1014532261909640/react-native-bringing-modern-web-techniques-to-mobile/) 
+* [React native official documentation](https://code.facebook.com/posts/1014532261909640/react-native-bringing-modern-web-techniques-to-mobile/)
+* [Create-react-native-app](https://github.com/react-community/create-react-native-app)
 
-React Drag & Drop
-DragDropContainer and DropTarget
-React Sortable (HOC)
-React Router
-Repo: https://github.com/rackt/react-router
-Docs: https://rackt.github.io/react-router/
+### React Drag & Drop
+* [DragDropContainer and DropTarget](https://github.com/peterh32/react-drag-drop-container)
+* [React Sortable (HOC)](https://github.com/clauderic/react-sortable-hoc)
 
-React Chart
+### React Router
+* Repo: https://github.com/rackt/react-router
+* Docs: https://rackt.github.io/react-router/
+
+### React Chart
 Type	Library	Pro	Cons	Cost	Demo
 CHART	React D3	Reusable components
 Interactive features, like zoom and tooltips
@@ -82,26 +83,27 @@ React Books
 React in depth
 React enlightenment
 
-Webpack
-Repo: https://github.com/webpack/webpack
-Docs: http://webpack.github.io/docs/what-is-webpack.html
-Setting up Webpack for React: https://robots.thoughtbot.com/setting-up-webpack-for-react-and-hot-module-replacement
-Redux
- Redux official documentation.  
-Getting Started with Redux - Video Series
-Building React Applications with Idiomatic Redux - Video Series
-Modern Web Development with React and Redux
+### Webpack
+* Repo: https://github.com/webpack/webpack
+* Docs: http://webpack.github.io/docs/what-is-webpack.html
+* Setting up Webpack for React: https://robots.thoughtbot.com/setting-up-webpack-for-react-and-hot-module-replacement
+
+### Redux
+* Redux official documentation.  
+* Getting Started with Redux - Video Series
+* Building React Applications with Idiomatic Redux - Video Series
+* Modern Web Development with React and Redux
 Understanding Redux
 
 
-Virtual DOM
-https://jscomplete.github.io/react-virtual-dom-demo/demo/
-http://reactkungfu.com/2015/10/the-difference-between-virtual-dom-and-dom/
-https://auth0.com/blog/face-off-virtual-dom-vs-incremental-dom-vs-glimmer/
+### Virtual DOM
+* [React Virtual DOM Demo](https://jscomplete.github.io/react-virtual-dom-demo/demo/)
+* [The difference between Virtual Dom and Dom](http://reactkungfu.com/2015/10/the-difference-between-virtual-dom-and-dom/)
+* [Virtual Dom vs Incremental Dom vs Glimmer](https://auth0.com/blog/face-off-virtual-dom-vs-incremental-dom-vs-glimmer/)
 
-Others
-https://react.rocks/ : you can use this page to find React components, examples and more
-https://github.com/markerikson/react-redux-links
-http://blog.andrewray.me/reactjs-for-stupid-people/
-https://github.com/brillout/awesome-react-components
-React examples
+### Others
+* https://react.rocks/ : you can use this page to find React components, examples and more
+* https://github.com/markerikson/react-redux-links
+* http://blog.andrewray.me/reactjs-for-stupid-people/
+* https://github.com/brillout/awesome-react-components
+* [React examples](http://www.reactexamples.com/)
