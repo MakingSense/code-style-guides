@@ -9,6 +9,7 @@
 * [React: Getting Started and Concepts](https://scotch.io/tutorials/learning-react-getting-started-and-concepts)
 * [React.js Tutorial and Guide to the Gotchas](https://zapier.com/engineering/react-js-tutorial-guide-gotchas/)
 * [Build with React](http://buildwithreact.com/#articles)
+* [Server-side React rendering](https://css-tricks.com/server-side-react-rendering/)
 
 ### React Components
 * [React components lifecycle](http://javascript.tutorialhorizon.com/2014/09/13/execution-sequence-of-a-react-components-lifecycle-methods/)
