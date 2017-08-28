@@ -53,8 +53,11 @@
 | CHART     | [Rechart](http://recharts.org/) | * Already have lot of components for different type of chart<BR>* Components for interactive features<BR>* Easy way to customize CSS properties<BR>* Active repository with good response for issues<BR>* Based on D3 | * No example of how to create a new chart based on the existing componentse | MIT license | http://recharts.org/#/en-US/examples |
 | CHART     | [Victory](https://github.com/FormidableLabs/victory) |  |  | MIT license | http://recharts.org/#/en-US/examples |
 | CHART     | [react-d3-component](https://github.com/codesuki/react-d3-components) |  |  | MIT license | http://codesuki.github.io/react-d3-components/example.htmls |
-| SLIDER     | [rc-slider](https://github.com/react-component/slider) | * Active
-Supports IE9, IE9+, Chrome, Firefox & Safari |  | MIT license | http://react-component.github.io/slider/examples/handle.html |
+| SLIDER     | [rc-slider](https://github.com/react-component/slider) | * Active Supports IE9, IE9+, Chrome, Firefox & Safari |  | MIT license | http://react-component.github.io/slider/examples/handle.html |
+| SLIDER     | [react-input-slider](https://github.com/wangzuo/react-input-slider) |  |  | MIT license | 	https://wangzuo.github.io/react-input-slider/ |
+| SLIDER     | [react-range-slider](https://github.com/jpuri/react-range-slider) |  |  | MIT license | 	http://jpuri.github.io/react-range-slider/ |
+| GAUGE / SPEEDOMETER     | [react-gauge](https://github.com/jpuri/react-range-slider) |  |  | | https://github.com/michigan-com/react-gauge |
+| GAUGE / SPEEDOMETER     | [react-gauge-speedometer](https://github.com/Entali/react-gauge-speedometer) |  |  | | http://entali.github.io/react-gauge-speedometer/ |
 
 ### React Books
 * [React in depth](https://www.gitbook.com/book/developmentarc/react-indepth/details)
