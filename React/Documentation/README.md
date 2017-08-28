@@ -17,6 +17,9 @@
 
 ### React Events
 * [Events in React](https://docs.google.com/a/makingsense.com/presentation/d/1wAmH5RrOTcpG3P8YcjO29LdrgigadE3gUrt2nqFo03U/edit?usp=sharing)
+* [Handling Events in React](https://appendto.com/2017/01/react-events-101/)
+* [Everything About Events](https://reactarmory.com/guides/learn-react-by-itself/inputs-and-events)
+* [Normalize Events with Reacts Synthetic Event System](https://egghead.io/lessons/react-react-synthetic-event-system)
 
 ### React Native
 * [React Native: Bringing modern web techniques to mobile](https://code.facebook.com/posts/1014532261909640/react-native-bringing-modern-web-techniques-to-mobile/) 
