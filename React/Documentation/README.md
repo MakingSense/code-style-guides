@@ -1,9 +1,14 @@
-### React Official Documentation
+### React Documentation
 * [Official React documentation](https://facebook.github.io/react/)
 * [React Github repository](https://github.com/facebook/react/tree/master/docs)
 * [Original FB talk](https://www.youtube.com/watch?v=nYkdrAPrdcw)
 * [React DevTools](https://github.com/facebook/react-devtools)
 * [React Community GitHub](https://github.com/reactjs)
+* [30 Days of React](https://www.fullstackreact.com/30-days-of-react/)
+* [Learn React From Your Browser: Introducing React](https://reactarmory.com/guides/learn-react-by-itself)
+* [React: Getting Started and Concepts](https://scotch.io/tutorials/learning-react-getting-started-and-concepts)
+* [React.js Tutorial and Guide to the Gotchas](https://zapier.com/engineering/react-js-tutorial-guide-gotchas/)
+* [Build with React](http://buildwithreact.com/#articles)
 
 ### React Components
 * [React components lifecycle](http://javascript.tutorialhorizon.com/2014/09/13/execution-sequence-of-a-react-components-lifecycle-methods/)
@@ -17,6 +22,8 @@
 * [React Native: Bringing modern web techniques to mobile](https://code.facebook.com/posts/1014532261909640/react-native-bringing-modern-web-techniques-to-mobile/) 
 * [React native official documentation](https://code.facebook.com/posts/1014532261909640/react-native-bringing-modern-web-techniques-to-mobile/)
 * [Create-react-native-app](https://github.com/react-community/create-react-native-app)
+* [React Native Express](http://www.reactnativeexpress.com/)
+* [React Native Workshop](https://rangle-io.gitbooks.io/react-native-workshop/content/)
 
 ### React Drag & Drop
 * [DragDropContainer and DropTarget](https://github.com/peterh32/react-drag-drop-container)
@@ -39,11 +46,16 @@ Supports IE9, IE9+, Chrome, Firefox & Safari |  | MIT license | http://react-com
 ### React Books
 * [React in depth](https://www.gitbook.com/book/developmentarc/react-indepth/details)
 * [React enlightenment](https://www.reactenlightenment.com/)
+* [Best ReactJS Books in 2017](https://reactdom.com/blog/reactjs-books)
 
 ### Webpack
 * [Webpack Respository](https://github.com/webpack/webpack)
 * [Webpack Official Documentation](http://webpack.github.io/docs/what-is-webpack.html)
 * [Setting up Webpack for React](https://robots.thoughtbot.com/setting-up-webpack-for-react-and-hot-module-replacement)
+* [Webpack: Build Performance](https://github.com/webpack/docs/wiki/build-performance)
+* [Advanced Frontend Optimization with Webpack](http://sokra.github.io/slides/frontend-optimize)
+* [Webpack Dashboard](https://github.com/FormidableLabs/webpack-dashboard)
+* [Webpack Visualizer](https://chrisbateman.github.io/webpack-visualizer/)
 
 ### Redux
 * [Redux official documentation](http://redux.js.org/index.html)
