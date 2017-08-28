@@ -32,6 +32,9 @@
 | CHART     | [React D3](http://www.reactd3.org/) | * Reusable components<BR>* Interactive features, like zoom and tooltips<BR>Good github repo with examples<BR>* Based on D3 | * There is no component for each chart, just generic components for the chart parts<BR>* Didn't say anything about CSS changes and UI customization of the charts<BR>* Not mantained anymore | MIT license | |
 | CHART     | [Rechart](http://recharts.org/) | * Already have lot of components for different type of chart<BR>* Components for interactive features<BR>* Easy way to customize CSS properties<BR>* Active repository with good response for issues<BR>* Based on D3 | * No example of how to create a new chart based on the existing componentse | MIT license | http://recharts.org/#/en-US/examples |
 | CHART     | [Victory](https://github.com/FormidableLabs/victory) |  |  | MIT license | http://recharts.org/#/en-US/examples |
+| CHART     | [react-d3-component](https://github.com/codesuki/react-d3-components) |  |  | MIT license | http://codesuki.github.io/react-d3-components/example.htmls |
+| SLIDER     | [rc-slider](https://github.com/react-component/slider) | * Active
+Supports IE9, IE9+, Chrome, Firefox & Safari |  | MIT license | http://react-component.github.io/slider/examples/handle.html |
 
 ### React Books
 * [React in depth](https://www.gitbook.com/book/developmentarc/react-indepth/details)
