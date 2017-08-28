@@ -33,16 +33,16 @@
 * [React enlightenment](https://www.reactenlightenment.com/)
 
 ### Webpack
-* Repo: https://github.com/webpack/webpack
-* Docs: http://webpack.github.io/docs/what-is-webpack.html
-* Setting up Webpack for React: https://robots.thoughtbot.com/setting-up-webpack-for-react-and-hot-module-replacement
+* [Webpack Respository](https://github.com/webpack/webpack)
+* [Webpack Official Documentation](http://webpack.github.io/docs/what-is-webpack.html)
+* [Setting up Webpack for React](https://robots.thoughtbot.com/setting-up-webpack-for-react-and-hot-module-replacement)
 
 ### Redux
-* Redux official documentation.  
-* Getting Started with Redux - Video Series
-* Building React Applications with Idiomatic Redux - Video Series
-* Modern Web Development with React and Redux
-Understanding Redux
+* [Redux official documentation](http://redux.js.org/index.html)
+* [Getting Started with Redux - Video Series](https://egghead.io/series/getting-started-with-redux)
+* [Building React Applications with Idiomatic Redux - Video Series](https://egghead.io/series/building-react-applications-with-idiomatic-redux)
+* [Modern Web Development with React and Redux](http://blog.isquaredsoftware.com/2017/02/presentation-react-redux-intro/)
+* [Understanding Redux](http://www.youhavetolearncomputers.com/blog/2015/9/15/a-conceptual-overview-of-redux-or-how-i-fell-in-love-with-a-javascript-state-container)
 
 
 ### Virtual DOM
@@ -51,8 +51,8 @@ Understanding Redux
 * [Virtual Dom vs Incremental Dom vs Glimmer](https://auth0.com/blog/face-off-virtual-dom-vs-incremental-dom-vs-glimmer/)
 
 ### Others
-* https://react.rocks/ : you can use this page to find React components, examples and more
-* https://github.com/markerikson/react-redux-links
-* http://blog.andrewray.me/reactjs-for-stupid-people/
+* [React Rocks: find components](https://react.rocks/)
+* [React Redux Links](https://github.com/markerikson/react-redux-links)
+* [Reactjs for stupid people - blog entry](http://blog.andrewray.me/reactjs-for-stupid-people/)
 * https://github.com/brillout/awesome-react-components
 * [React examples](http://www.reactexamples.com/)
