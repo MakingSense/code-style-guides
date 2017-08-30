@@ -15,9 +15,12 @@
 * [Client-side vs. server-side rendering: why it’s not all black and white](https://medium.freecodecamp.org/what-exactly-is-client-side-rendering-and-hows-it-different-from-server-side-rendering-bd5c786b340d)
 
 ### React Components
-* [React components lifecycle](http://javascript.tutorialhorizon.com/2014/09/13/execution-sequence-of-a-react-components-lifecycle-methods/)
 * [React elements vs components](https://tylermcginnis.com/react-elements-vs-react-components/)
 * [React Components, Elements, and Instances](https://facebook.github.io/react/blog/2015/12/18/react-components-elements-and-instances.html)
+
+* [React components lifecycle](http://javascript.tutorialhorizon.com/2014/09/13/execution-sequence-of-a-react-components-lifecycle-methods/)
+* [React lifecycle cheatsheet](https://gist.github.com/bvaughn/923dffb2cd9504ee440791fade8db5f9)
+* [React In-Depth: The React Life Cycle](https://developmentarc.gitbooks.io/react-indepth/content/)
 
 ### React Events
 * [Events in React](https://docs.google.com/a/makingsense.com/presentation/d/1wAmH5RrOTcpG3P8YcjO29LdrgigadE3gUrt2nqFo03U/edit?usp=sharing)
