@@ -91,6 +91,9 @@
 * [Building React Applications with Idiomatic Redux - Video Series](https://egghead.io/series/building-react-applications-with-idiomatic-redux)
 * [Modern Web Development with React and Redux](http://blog.isquaredsoftware.com/2017/02/presentation-react-redux-intro/)
 * [Understanding Redux](http://www.youhavetolearncomputers.com/blog/2015/9/15/a-conceptual-overview-of-redux-or-how-i-fell-in-love-with-a-javascript-state-container)
+* [Getting started with Redux](https://www.codementor.io/mz026/getting-started-with-react-redux-an-intro-8r6kurcxf)
+* [Redux Tutorial](https://github.com/happypoulp/redux-tutorial)
+
 
 
 ### Virtual DOM
