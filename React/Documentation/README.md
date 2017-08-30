@@ -93,6 +93,7 @@
 * [Understanding Redux](http://www.youhavetolearncomputers.com/blog/2015/9/15/a-conceptual-overview-of-redux-or-how-i-fell-in-love-with-a-javascript-state-container)
 * [Getting started with Redux](https://www.codementor.io/mz026/getting-started-with-react-redux-an-intro-8r6kurcxf)
 * [Redux Tutorial](https://github.com/happypoulp/redux-tutorial)
+* [React / Redux Style Guide](https://github.com/ghengeveld/react-redux-styleguide)
 
 
 
