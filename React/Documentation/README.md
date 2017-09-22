@@ -94,6 +94,7 @@
 * [Getting started with Redux](https://www.codementor.io/mz026/getting-started-with-react-redux-an-intro-8r6kurcxf)
 * [Redux Tutorial](https://github.com/happypoulp/redux-tutorial)
 * [React / Redux Style Guide](https://github.com/ghengeveld/react-redux-styleguide)
+* [Awesome Redux](https://github.com/xgrommx/awesome-redux): amazing collection of links about Redux and Middlewares
 
 
 
