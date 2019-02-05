@@ -11,7 +11,7 @@ provide suggestions.
 - [Javascript ES6](Javascript(ES6)/README.md)
 - [Javascript ES5](Javascript(ES5)/README.md)
 - [NodeJs](NodeJs/Readme.md)
-- [Java](Java/Readme.md)
+- [Java](Java/README.md)
 - [Angular 1.x](Angular(1.x)/README.md)
 - [React](React/README.md)
 - [Swift](Swift/Readme.md)
