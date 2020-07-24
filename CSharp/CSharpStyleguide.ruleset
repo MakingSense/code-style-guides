@@ -9,7 +9,7 @@
     <Rule Id="SA1011" Action="Error" /> <!-- Closing square brackets must be spaced correctly -->
     <Rule Id="SA1012" Action="Error" /> <!-- Opening curly brackets must be spaced correctly -->
     <Rule Id="SA1013" Action="Error" /> <!-- Closing curly brackets must be spaced correctly -->
-    <Rule Id="SA1101" Action="Warning" /> <!-- Prefix local calls with this -->
+    <Rule Id="SA1101" Action="None" /> <!-- Prefix local calls with this -->
     <Rule Id="SA1121" Action="Error" /> <!-- Use built in type alias -->
     <Rule Id="SA1201" Action="Warning" /> <!-- Elements must appear in the correct order -->
     <Rule Id="SA1202" Action="Warning" /> <!-- Elements must be ordered by access -->
